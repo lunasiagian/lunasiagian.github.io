@@ -82,7 +82,7 @@
   .bigname{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-2px;line-height:0.82;
     font-size:clamp(46px,14vw,86px);color:var(--ink);cursor:default;
     text-shadow:4px 4px 0 var(--lime), 7px 7px 0 var(--mag);}
-  .bigname.go{animation:nameGlitch .45s ease-out 1;}
+  .bigname.is-glitching{animation:nameGlitch .45s ease-out 1;}
   /* gentle glitch: RGB ghosts jitter in place (NO transform → box never collapses). */
   @keyframes nameGlitch{
     0%  {text-shadow:4px 4px 0 var(--lime), 7px 7px 0 var(--mag);}
@@ -372,13 +372,13 @@
   if(bn){
     bn.addEventListener("mouseenter",function(){
       if(reduce) return;
-      bn.classList.remove("go");
+      bn.classList.remove("is-glitching");
       void bn.offsetWidth;           /* reflow so it can replay on a fresh hover */
-      bn.classList.add("go");
+      bn.classList.add("is-glitching");
       clearTimeout(bn._t);
-      bn._t=setTimeout(function(){bn.classList.remove("go");},700);  /* safety: never stay stuck */
+      bn._t=setTimeout(function(){bn.classList.remove("is-glitching");},700);  /* safety: never stay stuck */
     });
-    bn.addEventListener("animationend",function(){ bn.classList.remove("go"); });
+    bn.addEventListener("animationend",function(){ bn.classList.remove("is-glitching"); });
   }
 })();
 </script>

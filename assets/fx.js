@@ -22,17 +22,22 @@
   /* shared veil for boot + wipe */
   var veil=document.createElement("div");
   veil.id="fx-veil";
-  veil.innerHTML='<div class="glitch"></div><div class="bar"></div><div class="label">SIGNAL ACQUIRED</div>';
+  veil.innerHTML='<div class="fx-bar fx-bar-1"></div><div class="fx-bar fx-bar-2"></div><div class="fx-bar fx-bar-3"></div>';
   body.appendChild(veil);
 
-  /* ---- BOOT on load (full sequence on home, once per tab session) ---- */
+  /* ---- BOOT/REVEAL on load (full sequence on home, or reveal wipe on transition) ---- */
   if(!reduce){
     var full=body.getAttribute("data-boot")==="full";
     var already=sessionStorage.getItem("fx-booted");
+    var transitioning=sessionStorage.getItem("fx-transitioning") === "1";
     if(full && !already){
       veil.classList.add("boot");
       sessionStorage.setItem("fx-booted","1");
-      setTimeout(function(){veil.classList.remove("boot");}, 1300);
+      setTimeout(function(){veil.classList.remove("boot");}, 800);
+    } else if(transitioning){
+      veil.classList.add("reveal");
+      sessionStorage.removeItem("fx-transitioning");
+      setTimeout(function(){veil.classList.remove("reveal");}, 800);
     }
   }
 
@@ -58,10 +63,11 @@
     if(!isInternal(a)) return;
     e.preventDefault();
     var href=a.getAttribute("href");
+    sessionStorage.setItem("fx-transitioning", "1");
     veil.classList.add("wipe");
-    setTimeout(function(){ window.location.href=href; }, 300);
+    setTimeout(function(){ window.location.href=href; }, 450);
   }, true);
 
   /* clear veil if returning via back/forward cache */
-  window.addEventListener("pageshow", function(){ veil.classList.remove("wipe","boot"); });
+  window.addEventListener("pageshow", function(){ veil.classList.remove("wipe","boot","reveal"); });
 })();
