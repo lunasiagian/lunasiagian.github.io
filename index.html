@@ -64,7 +64,15 @@
 
   /* hero */
   .hero{position:relative;margin:18px;border:4px solid var(--ink);border-radius:14px;background:var(--pink);overflow:hidden;}
-  .halftone{position:absolute;inset:0;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.3px);background-size:11px 11px;opacity:0.16;}
+  .halftone{position:absolute;inset:0;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.3px);background-size:11px 11px;opacity:0.16;animation:drift 6s linear infinite;}
+  /* ZZZ CRT screen treatment on the hero */
+  .hero::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;
+    background:repeating-linear-gradient(to bottom, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px);
+    mix-blend-mode:multiply;animation:flicker 4.5s steps(1) infinite;}
+  .hero::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;
+    box-shadow:inset 0 0 50px rgba(0,0,0,0.28);border-radius:10px;}
+  @keyframes drift{to{background-position:11px 11px;}}
+  @keyframes flicker{0%,97%,100%{opacity:1;}97.5%{opacity:.82;}98.5%{opacity:.93;}}
   .wedge{position:absolute;top:0;right:0;width:46%;height:100%;background:var(--cyan);clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);}
   .hero-top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:9px 14px;}
   .tag-pill{background:var(--ink);color:var(--yellow);font-size:11px;letter-spacing:2px;padding:3px 12px;border-radius:20px;font-weight:700;}
@@ -162,7 +170,7 @@
     .almanac{flex-wrap:wrap;}
     .almanac .cell:last-child{margin-left:0;}
   }
-  @media (prefers-reduced-motion:reduce){.medallion .ticks{animation:none;}}
+  @media (prefers-reduced-motion:reduce){.medallion .ticks,.halftone,.hero::after{animation:none;}}
 </style>
 </head>
 <body>
