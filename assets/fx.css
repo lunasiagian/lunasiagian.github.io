@@ -69,6 +69,26 @@
 #fx-veil.reveal .fx-bar-3,
 #fx-veil.boot .fx-bar-3{animation:barSlideOut .32s cubic-bezier(.7,0,.25,1) .14s forwards;}
 
+/* impact frame flash on reveal/boot */
+#fx-veil.reveal::after,
+#fx-veil.boot::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--fx-lime, #C6FF00);
+  mix-blend-mode: difference;
+  z-index: 9600;
+  pointer-events: none;
+  animation: impactFlash 0.35s linear forwards;
+}
+
+@keyframes impactFlash {
+  0% { opacity: 1; }
+  14% { opacity: 1; } /* ~50ms of inverted neon flash */
+  15% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion:reduce){
   #fx-crt::before{animation:none;}
   #fx-veil,#fx-veil *{animation:none !important;}
