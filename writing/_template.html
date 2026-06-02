@@ -8,7 +8,7 @@
 <meta name="description" content="ONE-LINE SUMMARY OF THIS ESSAY.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="writing.css">
 </head>
 <!--
@@ -18,7 +18,8 @@
   2. Fill in every ▼ EDIT marker below.
   3. Write your prose inside <div class="body"> using <p>, <h2>, <h3>,
      <blockquote>, <ul>/<li>, <em>, <strong>, <a href>, <hr>, <code>.
-  4. Add a matching <a class="entry"> card to the TOP of index.html.
+     (The first paragraph gets an automatic newspaper drop-cap.)
+  4. Add a matching <a class="story"> card to the TOP of index.html.
   5. Commit & push — GitHub Pages publishes it automatically.
   =====================================================================
 -->
@@ -35,28 +36,38 @@
     </div>
 
     <div class="subnav">
-      <a class="back" href="index.html"><span class="arr">&#9664;</span> ALL WRITING</a>
+      <a class="back" href="index.html"><span class="arr">&#9664;</span> FRONT PAGE</a>
       <!-- ▼ EDIT: arcana for this piece (e.g. IX · THE HERMIT) -->
       <span class="crumb">IX &middot; THE HERMIT</span>
     </div>
 
     <article class="article">
-      <div class="head">
+      <div class="art-head">
         <div class="halftone"></div>
-        <div class="meta">
-          <!-- ▼ EDIT: arcana tag · date · reading time -->
-          <span class="arc-tag">ARCANA</span>
-          <span class="date">MON 00, 2026</span>
-          <span class="rt">0 MIN READ</span>
+        <!-- ▼ EDIT: arcana kicker -->
+        <span class="kicker">ARCANA</span>
+        <!-- ▼ EDIT: headline -->
+        <h1 class="headline">ESSAY TITLE</h1>
+        <div class="byline">
+          <span class="by">BY LUNA TALITA SIAGIAN</span><span class="sep">&#9670;</span>
+          <!-- ▼ EDIT: date · reading time -->
+          <span>MON 00, 2026</span><span class="sep">&#9670;</span>
+          <span>0 MIN READ</span>
         </div>
-        <!-- ▼ EDIT: title + dek -->
-        <h1>ESSAY TITLE</h1>
+        <!-- ▼ EDIT: dek / subtitle -->
         <p class="dek">A one-sentence subtitle that sells the piece.</p>
+      </div>
+
+      <!-- CRT broadcast lower-third (▼ EDIT channel no. / caption if you like) -->
+      <div class="lowerthird">
+        <span class="ch">CH.18</span>
+        <span class="cap">FIELD NOTES &middot; NEW ERIDU</span>
+        <span class="rec">REC</span>
       </div>
 
       <!-- ============ ESSAY BODY — write your prose here ============ -->
       <div class="body">
-        <p>First paragraph.</p>
+        <p>First paragraph. (Gets the drop-cap automatically.)</p>
         <h2>A section heading</h2>
         <p>More paragraphs. Use <em>italics</em>, <strong>bold</strong>, and <a href="#">links</a> as needed.</p>
         <blockquote>A pull-quote, if you want one.</blockquote>

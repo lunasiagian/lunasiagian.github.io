@@ -7,7 +7,7 @@
 <meta name="description" content="Essays, fiction & analysis by Luna Talita Siagian — on language, code, and what things mean.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="writing.css">
 </head>
 <body>
@@ -27,28 +27,44 @@
       <span class="crumb">IX &middot; THE HERMIT</span>
     </div>
 
-    <div class="arc-hero">
+    <!-- ===================== MASTHEAD ===================== -->
+    <div class="masthead">
       <div class="halftone"></div>
-      <span class="label">&#9733; THE COMPENDIUM</span>
-      <h1>WRITING</h1>
-      <div class="blurb"><span>Essays, fiction &amp; analysis &mdash; on language, code, and what things mean.</span></div>
+      <div class="ed-row">
+        <span>VOL. I <span class="dot">&middot;</span> NO. 1</span>
+        <span id="ed-date">&mdash; &mdash;</span>
+        <span>NEW ERIDU EDITION <span class="dot">&middot;</span> &yen;80</span>
+      </div>
+      <div class="nameplate">THE&nbsp;<span class="neon">COMPENDIUM</span></div>
+      <div class="tagline">ESSAYS &middot; FICTION &middot; ANALYSIS</div>
+    </div>
+    <div class="rule2"></div>
+
+    <!-- broadcast strip -->
+    <div class="broadcast">
+      <span class="live">ON AIR</span>
+      <div class="ticker"><span>ESSAYS &middot; FICTION &middot; ANALYSIS &middot; ON LANGUAGE, CODE &amp; MEANING &middot; I EXPLORE WHAT THINGS MEAN &mdash; THROUGH CODE, THROUGH FICTION &middot;&nbsp;</span></div>
     </div>
 
-    <!-- ===========================================================
-         ESSAY INDEX
-         To add a new essay: copy one <a class="entry"> block,
-         point href at your new file, and fill in the fields.
-         Newest essay goes at the TOP.
-         =========================================================== -->
-    <div class="list">
+    <!-- ===================== FRONT PAGE ===================== -->
+    <div class="frontpage">
+      <div class="section-tag"><span class="t">LATEST</span><span class="ln"></span></div>
 
-      <a class="entry" href="on-what-things-mean.html">
-        <div class="meta">
-          <span class="arc-tag">THE MOON</span>
-          <span class="date">JUN 2, 2026</span>
-          <span class="rt">7 MIN READ</span>
+      <!-- ===========================================================
+           ESSAY INDEX
+           To add a new essay: copy one <a class="story"> block,
+           point href at your new file, and fill in the fields.
+           Newest essay goes at the TOP.
+           =========================================================== -->
+
+      <a class="story" href="on-what-things-mean.html">
+        <span class="kicker">THE MOON</span>
+        <div class="head">On What Things Mean</div>
+        <div class="dateline">
+          <span>JUN 2, 2026</span><span class="sep">&#9670;</span>
+          <span>FIELD NOTES</span><span class="sep">&#9670;</span>
+          <span>7 MIN READ</span>
         </div>
-        <h2>On What Things Mean</h2>
         <p class="dek">A first field note: why I read code and fiction with the same pair of eyes, and what gets lost in the translation between them.</p>
       </a>
 
@@ -60,5 +76,15 @@
     </footer>
 
   </main>
+
+<script>
+  /* live dateline in the masthead edition row */
+  (function(){
+    var WD=["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    var MO=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+    var d=new Date(), el=document.getElementById("ed-date");
+    if(el) el.textContent=WD[d.getDay()]+" "+MO[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
+  })();
+</script>
 </body>
 </html>
