@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Talita Siagian</title>
+<meta name="description" content="Luna Talita Siagian — linguist, programmer, writer. I explore what things mean — through code, through fiction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#EF2D7E;
+    --cyan:#16E0E0;
+    --yellow:#F5E000;
+    --cream:#ECE6D6;
+    --ink:#111111;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--cream);
+    font-family:'Archivo',system-ui,sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:24px 16px;
+  }
+  .page{
+    width:100%;
+    max-width:680px;
+    background:var(--cream);
+    border:4px solid var(--ink);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  /* browser chrome bar */
+  .chrome{background:var(--ink);display:flex;align-items:center;gap:10px;padding:10px 16px;}
+  .dots{display:flex;gap:5px;}
+  .dots span{width:10px;height:10px;border-radius:50%;display:block;}
+  .urlbar{flex:1;background:#2a2a2a;border-radius:20px;text-align:center;color:var(--cream);font-size:13px;letter-spacing:2px;padding:5px 0;font-weight:500;}
+
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px 10px;border-bottom:3px solid var(--ink);flex-wrap:wrap;gap:8px;}
+  nav a{font-size:15px;font-weight:500;letter-spacing:1px;color:var(--ink);text-decoration:none;}
+  nav a.contact{background:var(--pink);color:#fff;padding:5px 16px;border-radius:8px;border:2px solid var(--ink);}
+
+  /* hero */
+  .hero{position:relative;margin:18px;border:4px solid var(--ink);border-radius:14px;background:var(--pink);overflow:hidden;}
+  .halftone{position:absolute;inset:0;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.3px);background-size:11px 11px;opacity:0.16;}
+  .wedge{position:absolute;top:0;right:0;width:46%;height:100%;background:var(--cyan);clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);}
+  .wedge-seam{position:absolute;top:0;right:46%;width:0;height:100%;}
+  .hero-top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:9px 14px;}
+  .tag-pill{background:var(--ink);color:var(--yellow);font-size:11px;letter-spacing:2px;padding:3px 12px;border-radius:20px;font-weight:500;}
+  .est{color:var(--ink);font-size:11px;letter-spacing:3px;font-weight:500;}
+  .hero-body{position:relative;padding:8px 18px 24px;}
+  .bigname{font-size:64px;line-height:0.84;font-weight:900;color:var(--cream);letter-spacing:-1px;-webkit-text-stroke:2px var(--ink);text-shadow:5px 5px 0 var(--ink);}
+  .thesis{margin-top:16px;background:var(--ink);display:inline-block;padding:8px 14px;border-radius:8px;max-width:60%;}
+  .thesis span{color:var(--yellow);font-size:15px;font-weight:500;letter-spacing:0.3px;line-height:1.4;}
+  .seal{position:absolute;bottom:14px;right:16px;background:var(--yellow);color:var(--ink);border:3px solid var(--ink);border-radius:50%;width:76px;height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:500;transform:rotate(-8deg);}
+  .seal .s1{font-size:9px;letter-spacing:1px;}
+  .seal .s2{font-size:21px;line-height:1;font-weight:900;}
+  .seal .s3{font-size:8px;letter-spacing:1px;}
+
+  /* links */
+  .links{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 18px 8px;}
+  .card{text-decoration:none;border:4px solid var(--ink);border-radius:12px;padding:16px 12px;display:flex;flex-direction:column;gap:8px;transition:transform .12s ease;}
+  .card:hover{transform:translate(-2px,-2px);}
+  .card .icon{font-size:30px;line-height:1;}
+  .card .name{font-weight:700;font-size:15px;letter-spacing:1px;}
+  .card .desc{font-size:11px;line-height:1.4;}
+  .card .go{margin-top:4px;font-size:10px;letter-spacing:1px;padding:3px 8px;border-radius:6px;border:2px solid var(--ink);align-self:flex-start;font-weight:500;}
+  .card.light{background:var(--cream);}
+  .card.light .icon,.card.light .name{color:var(--ink);}
+  .card.light .desc{color:#5F5E5A;}
+  .card.dark{background:var(--ink);}
+  .card.dark .icon,.card.dark .name{color:var(--cream);}
+  .card.dark .desc{color:#B4B2A9;}
+  .sub{box-shadow:5px 5px 0 var(--pink);} .sub:hover{box-shadow:7px 7px 0 var(--pink);}
+  .gh{box-shadow:5px 5px 0 var(--cyan);} .gh:hover{box-shadow:7px 7px 0 var(--cyan);}
+  .ig{box-shadow:5px 5px 0 var(--yellow);} .ig:hover{box-shadow:7px 7px 0 var(--yellow);}
+  .go.pink{background:var(--pink);color:#fff;}
+  .go.cyan{background:var(--cyan);color:#0a4a4a;border-color:var(--cyan);}
+  .go.yellow{background:var(--yellow);color:var(--ink);}
+
+  /* footer */
+  footer{display:flex;align-items:center;justify-content:space-between;background:var(--ink);margin-top:10px;padding:9px 18px;}
+  footer .left{color:var(--cyan);font-size:10px;letter-spacing:3px;}
+  footer .right{color:var(--pink);font-size:10px;letter-spacing:3px;font-weight:500;}
+
+  /* SVG icon sizing */
+  .ic{width:30px;height:30px;display:block;}
+
+  @media (max-width:520px){
+    .bigname{font-size:48px;}
+    .thesis{max-width:90%;}
+    .links{grid-template-columns:1fr;}
+    .seal{width:64px;height:64px;}
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <div class="chrome">
+      <div class="dots">
+        <span style="background:var(--pink)"></span>
+        <span style="background:var(--cyan)"></span>
+        <span style="background:var(--yellow)"></span>
+      </div>
+      <div class="urlbar">&#128274; WWW.LUNASIAGIAN.INK</div>
+    </div>
+
+    <nav>
+      <a href="#">HOME</a>
+      <a href="#writing">WRITING</a>
+      <a href="#work">WORK</a>
+      <a href="#contact" class="contact">CONTACT</a>
+    </nav>
+
+    <section class="hero">
+      <div class="halftone"></div>
+      <div class="wedge"></div>
+      <div class="hero-top">
+        <span class="tag-pill">&#10033; PORTFOLIO &amp; FIELD NOTES</span>
+        <span class="est">EST. 2026 &#9733; JKT&mdash;YYZ</span>
+      </div>
+      <div class="hero-body">
+        <div class="bigname">LUNA<br>TALITA</div>
+        <div class="thesis"><span>I explore what things mean &mdash; through code, through fiction.</span></div>
+      </div>
+      <div class="seal">
+        <span class="s1">THE</span>
+        <span class="s2">No.1</span>
+        <span class="s3">MONTHLY</span>
+      </div>
+    </section>
+
+    <div class="links">
+      <a class="card light sub" href="https://lunasiagian.substack.com">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 10h18"/><path d="M3 15l9 5 9-5"/></svg>
+        <span class="name">SUBSTACK</span>
+        <span class="desc">Essays, fiction &amp; analysis</span>
+        <span class="go pink">READ &rarr;</span>
+      </a>
+
+      <a class="card dark gh" href="https://github.com/lunasiagian">
+        <svg class="ic" viewBox="0 0 24 24" fill="#ECE6D6"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0112 6.84c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.02 10.02 0 0022 12.26C22 6.58 17.52 2 12 2z"/></svg>
+        <span class="name">GITHUB</span>
+        <span class="desc">The lab workbook</span>
+        <span class="go cyan">CODE &rarr;</span>
+      </a>
+
+      <a class="card light ig" href="https://instagram.com/lunasiagian">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#111" stroke="none"/></svg>
+        <span class="name">INSTAGRAM</span>
+        <span class="desc">The visual diary</span>
+        <span class="go yellow">LOOK &rarr;</span>
+      </a>
+    </div>
+
+    <footer>
+      <span class="left">&#9733; &copy;2026 LUNA TALITA SIAGIAN</span>
+      <span class="right">SCROLL &darr; FOR MORE</span>
+    </footer>
+
+  </main>
+</body>
+</html>
