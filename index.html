@@ -5,193 +5,185 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luna Talita Siagian</title>
 <meta name="description" content="Luna Talita Siagian — linguist, programmer, writer. I explore what things mean — through code, through fiction.">
+<meta name="theme-color" content="#F4F2EC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fx.css">
 <style>
   :root{
-    --pink:#EF2D7E;
-    --cyan:#16E0E0;
-    --yellow:#F5E000;
-    --cream:#ECE6D6;
+    --bone:#F4F2EC;
+    --paper2:#E9E5D8;
     --ink:#111111;
+    --lime:#C6FF00;
+    --mag:#FF2E88;
+    --muted:#6b6a63;
+    --disp:'Oswald',system-ui,sans-serif;
+    --fx-cyan:#C6FF00;--fx-lime:#C6FF00;--fx-mag:#FF2E88;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
   body{
-    background:var(--cream);
-    font-family:'Archivo',system-ui,sans-serif;
+    background:var(--bone);
+    font-family:var(--disp);
     color:var(--ink);
     min-height:100vh;
     display:flex;
     align-items:flex-start;
     justify-content:center;
-    padding:24px 16px;
+    padding:12px;
   }
   .page{
     width:100%;
-    max-width:680px;
-    background:var(--cream);
+    max-width:720px;
+    background:var(--bone);
     border:4px solid var(--ink);
-    border-radius:18px;
+    border-radius:10px;
     overflow:hidden;
+    box-shadow:8px 8px 0 var(--ink);
   }
 
-  /* browser chrome bar */
-  .chrome{background:var(--ink);display:flex;align-items:center;gap:10px;padding:10px 16px;}
-  .dots{display:flex;gap:5px;}
+  /* device top bar */
+  .chrome{background:var(--ink);display:flex;align-items:center;gap:10px;padding:9px 14px;}
+  .dots{display:flex;gap:6px;}
   .dots span{width:10px;height:10px;border-radius:50%;display:block;}
-  .urlbar{flex:1;background:#2a2a2a;border-radius:20px;text-align:center;color:var(--cream);font-size:13px;letter-spacing:2px;padding:5px 0;font-weight:500;}
+  .urlbar{flex:1;background:#262626;border-radius:5px;text-align:center;color:var(--bone);font-size:11px;letter-spacing:3px;padding:5px 0;font-weight:500;}
 
-  /* nav — P3 menu rail */
-  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px 10px;border-bottom:3px solid var(--ink);flex-wrap:wrap;gap:8px;}
-  nav a{font-size:15px;font-weight:700;letter-spacing:1px;color:var(--ink);text-decoration:none;position:relative;padding:2px 0;transition:transform .1s ease;}
-  nav a:not(.contact)::after{content:"";position:absolute;left:0;right:100%;bottom:-3px;height:3px;background:var(--pink);transition:right .15s ease;}
-  nav a:not(.contact):hover{transform:translateX(3px);}
-  nav a:not(.contact):hover::after{right:0;}
-  nav a.contact{background:var(--pink);color:#fff;padding:5px 16px;border-radius:8px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);}
+  /* nav = top menu tabs */
+  nav{display:flex;align-items:center;gap:4px;padding:8px 10px;border-bottom:4px solid var(--ink);flex-wrap:wrap;}
+  nav a{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--ink);text-decoration:none;text-transform:uppercase;
+    padding:8px 12px;position:relative;}
+  nav a:not(.contact)::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:3px;background:var(--mag);transform:scaleX(0);transform-origin:left;transition:transform .16s;}
+  nav a:not(.contact):hover::after,nav a:not(.contact):focus-visible::after{transform:scaleX(1);}
+  nav a.contact{margin-left:auto;color:#fff;background:var(--mag);font-weight:700;border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink);}
   nav a.contact:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink);}
 
-  /* P3 calendar / dark-hour strip */
-  .almanac{display:flex;align-items:stretch;border-bottom:3px solid var(--ink);font-weight:700;}
-  .almanac .cell{display:flex;align-items:center;gap:7px;padding:7px 14px;border-right:3px solid var(--ink);font-size:12px;letter-spacing:2px;}
+  /* status header (P3R date strip) */
+  .almanac{display:flex;align-items:stretch;flex-wrap:wrap;background:var(--ink);color:var(--bone);
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+  .almanac .cell{display:flex;align-items:center;gap:7px;padding:8px 13px;border-right:1px solid rgba(244,242,236,.18);font-weight:500;}
   .almanac .cell:last-child{border-right:none;margin-left:auto;}
-  .almanac .day{background:var(--ink);color:var(--cream);}
-  .almanac .date{color:var(--ink);}
-  .almanac .tod{color:var(--ink);}
-  .almanac .moon{background:var(--yellow);color:var(--ink);}
-  .almanac .moon .glyph{font-size:14px;line-height:1;}
+  .almanac .day{color:var(--lime);font-weight:700;}
+  .almanac .tod #tod{color:var(--mag);font-weight:700;}
+  .almanac .moon{color:var(--bone);}
+  .almanac .tod .play{display:inline-block;width:0;height:0;border-left:8px solid var(--mag);border-top:5px solid transparent;border-bottom:5px solid transparent;}
   #clock{font-variant-numeric:tabular-nums;}
 
-  /* hero */
-  .hero{position:relative;margin:18px;border:4px solid var(--ink);border-radius:14px;background:var(--pink);overflow:hidden;}
-  .halftone{position:absolute;inset:0;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.3px);background-size:11px 11px;opacity:0.16;animation:drift 6s linear infinite;}
-  /* ZZZ CRT screen treatment on the hero */
-  .hero::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;
-    background:repeating-linear-gradient(to bottom, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px);
-    mix-blend-mode:multiply;animation:flicker 4.5s steps(1) infinite;}
-  .hero::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;
-    box-shadow:inset 0 0 50px rgba(0,0,0,0.28);border-radius:10px;}
-  @keyframes drift{to{background-position:11px 11px;}}
-  @keyframes flicker{0%,97%,100%{opacity:1;}97.5%{opacity:.82;}98.5%{opacity:.93;}}
-  .wedge{position:absolute;top:0;right:0;width:46%;height:100%;background:var(--cyan);clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);}
-  .hero-top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:9px 14px;}
-  .tag-pill{background:var(--ink);color:var(--yellow);font-size:11px;letter-spacing:2px;padding:3px 12px;border-radius:20px;font-weight:700;}
-  .est{color:var(--ink);font-size:11px;letter-spacing:3px;font-weight:500;}
-  .hero-body{position:relative;padding:8px 18px 24px;}
-  .bigname{font-size:64px;line-height:0.84;font-weight:900;color:var(--cream);letter-spacing:-1px;-webkit-text-stroke:2px var(--ink);text-shadow:5px 5px 0 var(--ink);}
-  .thesis{margin-top:16px;background:var(--ink);display:inline-block;padding:8px 14px;border-radius:8px;max-width:58%;}
-  .thesis span{color:var(--yellow);font-size:15px;font-weight:500;letter-spacing:0.3px;line-height:1.4;}
+  /* hero / identity */
+  .hero{position:relative;margin:14px;border:4px solid var(--ink);border-radius:8px;overflow:hidden;background:var(--bone);box-shadow:5px 5px 0 var(--ink);}
+  .halftone{position:absolute;inset:0;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.4px);background-size:11px 11px;opacity:0.10;pointer-events:none;}
+  .diag{position:absolute;top:-30%;right:-12%;width:48%;height:160%;background:var(--lime);transform:skewX(-12deg);pointer-events:none;}
+  .diag::after{content:"";position:absolute;inset:0;left:14px;background:var(--mag);transform:translateX(10px);opacity:.0;}
+  .hero-top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:12px 14px 0;flex-wrap:wrap;}
+  .sticker{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    background:var(--ink);color:var(--lime);padding:5px 11px;border:2px solid var(--ink);transform:rotate(-1.5deg);box-shadow:3px 3px 0 var(--mag);}
+  .est{font-size:10px;letter-spacing:2px;font-weight:600;color:var(--ink);text-transform:uppercase;padding-top:4px;}
+  .hero-body{position:relative;padding:10px 16px 26px;}
+  .bigname{font-family:'Archivo',sans-serif;font-weight:900;letter-spacing:-2px;line-height:0.82;
+    font-size:clamp(46px,14vw,86px);color:var(--ink);cursor:default;
+    text-shadow:4px 4px 0 var(--lime), 7px 7px 0 var(--mag);}
+  .bigname.go{animation:nameGlitch .45s ease-out 1;}
+  /* gentle glitch: RGB ghosts jitter in place (NO transform → box never collapses). */
+  @keyframes nameGlitch{
+    0%  {text-shadow:4px 4px 0 var(--lime), 7px 7px 0 var(--mag);}
+    15% {text-shadow:-4px 0 0 var(--mag), 4px 1px 0 var(--lime), 6px 6px 0 var(--mag);}
+    30% {text-shadow:4px -1px 0 var(--mag), -4px 1px 0 var(--lime);}
+    45% {text-shadow:-3px 0 0 var(--lime), 5px 0 0 var(--mag), 5px 5px 0 var(--lime);}
+    60% {text-shadow:3px 1px 0 var(--mag), -3px -1px 0 var(--lime);}
+    75% {text-shadow:-2px 0 0 var(--mag), 3px 0 0 var(--lime), 6px 6px 0 var(--mag);}
+    100%{text-shadow:4px 4px 0 var(--lime), 7px 7px 0 var(--mag);}
+  }
+  .thesis{position:relative;margin-top:18px;display:inline-block;max-width:60ch;background:var(--ink);color:var(--bone);
+    padding:9px 14px;border-radius:0 12px 12px 12px;font-size:clamp(13px,3.6vw,15px);line-height:1.45;font-weight:400;}
+  .seal{position:absolute;bottom:14px;right:14px;width:78px;height:78px;border-radius:50%;background:var(--lime);
+    border:3px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;
+    transform:rotate(-9deg);box-shadow:3px 3px 0 var(--ink);}
+  .seal .moon{font-size:16px;line-height:1;}
+  .seal .n{font-family:'Archivo',sans-serif;font-size:21px;font-weight:900;line-height:.9;}
+  .seal .e{font-size:7px;letter-spacing:1px;font-weight:700;}
 
-  /* rotating arcana medallion (P3 evoker/clock motif, ZZZ ink styling) */
-  .medallion{position:absolute;bottom:14px;right:16px;width:84px;height:84px;}
-  .medallion .ticks{position:absolute;inset:0;border-radius:50%;
-    background:repeating-conic-gradient(from 0deg, var(--ink) 0deg 1.6deg, transparent 1.6deg 15deg);
-    -webkit-mask:radial-gradient(circle, transparent 0 32px, #000 32px 38px, transparent 38px);
-            mask:radial-gradient(circle, transparent 0 32px, #000 32px 38px, transparent 38px);
-    animation:spin 24s linear infinite;}
-  .medallion .core{position:absolute;inset:8px;background:var(--yellow);border:3px solid var(--ink);border-radius:50%;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg);}
-  .medallion .core .a-num{font-size:18px;line-height:1;font-weight:900;}
-  .medallion .core .a-name{font-size:7px;letter-spacing:1px;font-weight:700;}
-  .medallion .core .a-glyph{font-size:13px;line-height:1;margin-top:1px;}
-
-  /* P3 social-stat bars */
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 18px 4px;}
-  .stat{border:3px solid var(--ink);border-radius:10px;padding:8px 10px;background:var(--cream);}
-  .stat .row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px;}
-  .stat .lbl{font-size:10px;letter-spacing:1px;font-weight:900;}
-  .stat .val{font-size:9px;letter-spacing:1px;font-weight:700;color:#5F5E5A;}
+  /* stats */
+  .stats{display:grid;grid-template-columns:1fr;gap:9px;padding:0 14px 6px;}
+  .stat{border:3px solid var(--ink);border-radius:6px;padding:9px 11px;background:var(--bone);box-shadow:3px 3px 0 var(--ink);}
+  .stat .row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;}
+  .stat .lbl{font-size:10px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;}
+  .stat .val{font-size:9px;letter-spacing:1px;font-weight:700;color:var(--muted);}
   .track{height:9px;border:2px solid var(--ink);border-radius:5px;background:#fff;overflow:hidden;}
-  .fill{height:100%;border-right:2px solid var(--ink);}
-  .fill.p{background:var(--pink);} .fill.c{background:var(--cyan);} .fill.y{background:var(--yellow);}
+  .fill{height:100%;}
+  .fill.m{background:var(--mag);} .fill.l{background:var(--lime);} .fill.k{background:var(--ink);}
 
-  /* SOCIAL LINKS header (P3 section banner) */
-  .sl-head{display:flex;align-items:center;gap:10px;padding:14px 20px 6px;}
-  .sl-head .b{background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:3px;font-weight:900;padding:3px 12px;border-radius:6px;}
-  .sl-head .ln{flex:1;height:3px;background:var(--ink);border-radius:2px;}
+  /* channels header */
+  .sl-head{display:flex;align-items:center;gap:10px;padding:14px 16px 8px;}
+  .sl-head .b{background:var(--ink);color:var(--bone);font-size:11px;letter-spacing:3px;font-weight:700;padding:4px 12px;text-transform:uppercase;transform:skewX(-6deg);}
+  .sl-head .ln{flex:1;height:3px;background:var(--ink);}
 
-  /* links / social links */
-  .links{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 18px 4px;}
-  .card{position:relative;text-decoration:none;border:4px solid var(--ink);border-radius:12px;padding:16px 12px;display:flex;flex-direction:column;gap:8px;outline:none;transition:transform .12s ease;}
-  .card:hover,.card.is-active{transform:translate(-2px,-2px);}
-  .card .icon{font-size:30px;line-height:1;}
-  .card .name{font-weight:900;font-size:15px;letter-spacing:1px;}
-  .card .desc{font-size:11px;line-height:1.4;}
-  .card .go{margin-top:4px;font-size:10px;letter-spacing:1px;padding:3px 8px;border-radius:6px;border:2px solid var(--ink);align-self:flex-start;font-weight:700;}
-  .card.light{background:var(--cream);}
-  .card.light .icon,.card.light .name{color:var(--ink);}
-  .card.light .desc{color:#5F5E5A;}
-  .card.dark{background:var(--ink);}
-  .card.dark .icon,.card.dark .name{color:var(--cream);}
-  .card.dark .desc{color:#B4B2A9;}
-  .sub{box-shadow:5px 5px 0 var(--pink);} .sub:hover,.sub.is-active{box-shadow:7px 7px 0 var(--pink);}
-  .gh{box-shadow:5px 5px 0 var(--cyan);} .gh:hover,.gh.is-active{box-shadow:7px 7px 0 var(--cyan);}
-  .ig{box-shadow:5px 5px 0 var(--yellow);} .ig:hover,.ig.is-active{box-shadow:7px 7px 0 var(--yellow);}
-  .go.pink{background:var(--pink);color:#fff;}
-  .go.cyan{background:var(--cyan);color:#0a4a4a;border-color:var(--cyan);}
-  .go.yellow{background:var(--yellow);color:var(--ink);}
+  /* channels = P3R vertical menu list */
+  .links{display:flex;flex-direction:column;gap:10px;padding:0 14px 4px;}
+  .card{position:relative;display:flex;align-items:center;gap:13px;flex-wrap:wrap;text-decoration:none;
+    border:3px solid var(--ink);border-radius:7px;padding:12px 14px;background:var(--bone);outline:none;
+    box-shadow:4px 4px 0 var(--ink);transition:transform .12s ease,background .12s,box-shadow .12s;}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ac);transition:width .14s ease;}
+  .card:hover,.card.is-active{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ac);background:#fff;}
+  .card:hover::before,.card.is-active::before{width:6px;}
+  .card.sub{--ac:var(--mag);} .card.gh{--ac:var(--lime);} .card.ig{--ac:var(--ink);}
+  .ch-no{font-family:'Archivo',sans-serif;font-size:13px;font-weight:900;letter-spacing:1px;color:var(--ink);
+    background:var(--ac);border:2px solid var(--ink);padding:3px 7px;border-radius:4px;white-space:nowrap;}
+  .card.ig .ch-no{color:var(--bone);}
+  .card .icon .ic{width:26px;height:26px;display:block;}
+  .ch-main{display:flex;flex-direction:column;gap:2px;flex:1;min-width:120px;}
+  .ch-main .name{font-weight:700;font-size:15px;letter-spacing:2px;color:var(--ink);text-transform:uppercase;}
+  .ch-main .desc{font-size:11px;line-height:1.35;color:var(--muted);}
+  .signal{display:flex;align-items:flex-end;gap:2px;height:18px;}
+  .signal i{display:block;width:4px;background:var(--ac);border:1px solid var(--ink);}
+  .signal i:nth-child(1){height:7px;} .signal i:nth-child(2){height:10px;} .signal i:nth-child(3){height:13px;}
+  .signal i:nth-child(4){height:16px;} .signal i:nth-child(5){height:19px;}
+  .card.ig .signal i{background:var(--ink);}
+  .go{font-size:10px;letter-spacing:1px;padding:5px 11px;font-weight:700;text-transform:uppercase;color:#fff;background:var(--ink);border-radius:5px;white-space:nowrap;}
+  .card-cur{position:absolute;left:-4px;top:50%;transform:translate(-130%,-50%) scale(.6);color:var(--mag);font-size:18px;opacity:0;transition:transform .12s,opacity .12s;}
+  .card.is-active .card-cur{opacity:1;transform:translate(-130%,-50%) scale(1);}
 
-  /* arcana corner tag on each social link */
-  .arc{position:absolute;top:8px;right:8px;text-align:right;line-height:1;}
-  .arc .an{font-size:8px;letter-spacing:1px;font-weight:900;opacity:.85;}
-  .arc .ar{font-size:8px;letter-spacing:1px;font-weight:700;}
-  .card.dark .arc{color:var(--cream);}
-  .card.light .arc{color:var(--ink);}
+  /* detail readout */
+  .readout{margin:11px 14px 0;border:3px solid var(--ink);border-radius:7px;background:var(--ink);color:var(--bone);
+    display:flex;align-items:center;gap:9px;padding:9px 13px;font-size:11px;letter-spacing:1px;flex-wrap:wrap;box-shadow:4px 4px 0 var(--lime);}
+  .readout .cur{color:var(--lime);font-weight:700;}
+  .readout .ro-ch{color:var(--lime);font-weight:700;letter-spacing:1px;}
+  .readout .ro-txt{font-weight:400;color:#d9d6cc;}
+  .readout .hint{margin-left:auto;font-size:9px;letter-spacing:2px;color:#85837b;font-weight:600;}
 
-  /* P3 menu cursor */
-  .card::before{content:"\25B6";position:absolute;left:-2px;top:50%;transform:translate(-120%,-50%) scale(.6);
-    color:var(--pink);font-size:20px;opacity:0;transition:transform .12s ease,opacity .12s ease;
-    text-shadow:2px 2px 0 var(--ink);}
-  .card.is-active::before{opacity:1;transform:translate(-120%,-50%) scale(1);}
+  footer{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--ink);margin-top:14px;
+    padding:10px 16px;flex-wrap:wrap;}
+  footer .left{color:var(--lime);font-size:9px;letter-spacing:3px;text-transform:uppercase;}
+  footer .right{color:var(--mag);font-size:9px;letter-spacing:3px;font-weight:700;text-transform:uppercase;}
 
-  /* P3 description readout bar */
-  .readout{margin:10px 18px 0;border:3px solid var(--ink);border-radius:10px;background:var(--ink);color:var(--cream);
-    display:flex;align-items:center;gap:10px;padding:8px 12px;min-height:38px;font-size:12px;letter-spacing:.4px;}
-  .readout .cur{color:var(--pink);font-weight:900;}
-  .readout .ro-arc{color:var(--yellow);font-weight:700;letter-spacing:1px;white-space:nowrap;}
-  .readout .ro-txt{font-weight:500;color:#D9D4C6;}
-  .readout .hint{margin-left:auto;font-size:9px;letter-spacing:2px;color:#7c7a72;font-weight:700;white-space:nowrap;}
-
-  /* footer */
-  footer{display:flex;align-items:center;justify-content:space-between;background:var(--ink);margin-top:14px;padding:9px 18px;}
-  footer .left{color:var(--cyan);font-size:10px;letter-spacing:3px;}
-  footer .right{color:var(--pink);font-size:10px;letter-spacing:4px;font-weight:900;}
-
-  .ic{width:30px;height:30px;display:block;}
-
-  @keyframes spin{to{transform:rotate(360deg);}}
-
-  /* ZZZ glitch-burst on Social Link select */
+  /* glitch-burst on channel select */
   .card.burst{animation:cardburst .26s steps(2,end) forwards;z-index:20;}
   @keyframes cardburst{
-    0%  {transform:translate(-2px,-2px);}
-    18% {transform:translate(4px,-2px) skewX(-5deg);box-shadow:7px 0 0 var(--cyan),-7px 0 0 var(--pink);}
-    38% {transform:translate(-5px,2px) skewX(4deg); box-shadow:-8px 0 0 var(--cyan),8px 0 0 var(--pink);clip-path:inset(12% 0 28% 0);}
-    58% {transform:translate(3px,-1px) skewX(-3deg);box-shadow:6px 0 0 var(--yellow),-6px 0 0 var(--pink);clip-path:inset(40% 0 8% 0);}
-    78% {transform:translate(0,0);filter:invert(1);clip-path:inset(0 0 0 0);}
+    0%{transform:translate(-2px,-2px);}
+    20%{transform:translate(4px,-2px) skewX(-4deg);box-shadow:7px 0 0 var(--lime),-7px 0 0 var(--mag);}
+    45%{transform:translate(-5px,2px) skewX(3deg);box-shadow:-8px 0 0 var(--lime),8px 0 0 var(--mag);clip-path:inset(14% 0 30% 0);}
+    70%{transform:translate(3px,-1px);box-shadow:6px 0 0 var(--mag),-6px 0 0 var(--lime);clip-path:inset(42% 0 8% 0);}
+    85%{filter:invert(1);clip-path:none;}
     100%{transform:translate(0,0);}
   }
 
-  @media (max-width:520px){
-    .bigname{font-size:48px;}
-    .thesis{max-width:90%;}
-    .stats{grid-template-columns:1fr;}
-    .links{grid-template-columns:1fr;}
-    .medallion{width:64px;height:64px;}
-    .almanac{flex-wrap:wrap;}
-    .almanac .cell:last-child{margin-left:0;}
+  @media (min-width:560px){
+    body{padding:20px 16px;}
+    .stats{grid-template-columns:repeat(3,1fr);}
   }
-  @media (prefers-reduced-motion:reduce){.medallion .ticks,.halftone,.hero::after{animation:none;}}
+  @media (prefers-reduced-motion:reduce){
+    .card.burst{animation:none;}
+    .bigname.go{animation:none;}
+  }
 </style>
 </head>
-<body>
+<body data-fx data-boot="full">
   <main class="page">
 
     <div class="chrome">
       <div class="dots">
-        <span style="background:var(--pink)"></span>
-        <span style="background:var(--cyan)"></span>
-        <span style="background:var(--yellow)"></span>
+        <span style="background:var(--mag)"></span>
+        <span style="background:var(--lime)"></span>
+        <span style="background:#fff"></span>
       </div>
       <div class="urlbar">&#128274; LUNASIAGIAN.GITHUB.IO</div>
     </div>
@@ -203,112 +195,110 @@
       <a href="#contact" class="contact">CONTACT</a>
     </nav>
 
-    <!-- P3 calendar / moon-phase strip (live) -->
     <div class="almanac">
-      <div class="cell day"><span id="weekday">—</span></div>
-      <div class="cell date"><span id="date">—</span></div>
-      <div class="cell tod">&#9654; <span id="tod">—</span> &middot; <span id="clock">--:--</span></div>
-      <div class="cell moon"><span class="glyph" id="moonGlyph">&#9789;</span> <span id="moonName">—</span></div>
+      <div class="cell day"><span id="weekday">&mdash;</span></div>
+      <div class="cell date"><span id="date">&mdash;</span></div>
+      <div class="cell tod"><span class="play"></span><span id="tod">&mdash;</span> &middot; <span id="clock">--:--</span></div>
+      <div class="cell moon"><span id="moonGlyph">&#9789;</span> <span id="moonName">&mdash;</span></div>
     </div>
 
     <section class="hero">
+      <div class="diag"></div>
       <div class="halftone"></div>
-      <div class="wedge"></div>
       <div class="hero-top">
-        <span class="tag-pill">&#9789; ARCANA XVIII &middot; THE MOON</span>
+        <span class="sticker">LINGUIST / PROGRAMMER / WRITER</span>
         <span class="est">EST. 2026 &#9733; JKT&mdash;YYZ</span>
       </div>
       <div class="hero-body">
         <div class="bigname">LUNA<br>TALITA</div>
-        <div class="thesis"><span>I explore what things mean &mdash; through code, through fiction.</span></div>
+        <div class="thesis">I explore what things mean &mdash; through code, through fiction.</div>
       </div>
-      <div class="medallion">
-        <div class="ticks"></div>
-        <div class="core">
-          <span class="a-num">XVIII</span>
-          <span class="a-name">THE MOON</span>
-          <span class="a-glyph">&#9789;</span>
-        </div>
+      <div class="seal">
+        <span class="moon">&#9733;</span>
+        <span class="n">No.1</span>
+        <span class="e">EST 2026</span>
       </div>
     </section>
 
-    <!-- P3 social-stat parameters -->
     <div class="stats">
       <div class="stat">
         <div class="row"><span class="lbl">ELOQUENCE</span><span class="val">LV 9</span></div>
-        <div class="track"><div class="fill p" style="width:88%"></div></div>
+        <div class="track"><div class="fill m" style="width:90%"></div></div>
       </div>
       <div class="stat">
         <div class="row"><span class="lbl">LOGIC</span><span class="val">LV 8</span></div>
-        <div class="track"><div class="fill c" style="width:80%"></div></div>
+        <div class="track"><div class="fill k" style="width:80%"></div></div>
       </div>
       <div class="stat">
-        <div class="row"><span class="lbl">IMAGINATION</span><span class="val">LV 10</span></div>
-        <div class="track"><div class="fill y" style="width:97%"></div></div>
+        <div class="row"><span class="lbl">IMAGINATION</span><span class="val">LV 10 &middot; MAX</span></div>
+        <div class="track"><div class="fill l" style="width:100%"></div></div>
       </div>
     </div>
 
     <div class="sl-head">
-      <span class="b">SOCIAL LINKS</span>
+      <span class="b">CHANNELS</span>
       <span class="ln"></span>
     </div>
 
     <div class="links" id="links">
-      <a class="card light sub" href="https://lunasiagian.substack.com"
-         data-arc="THE HERMIT" data-rank="RANK 10 &#9733;" data-name="SUBSTACK" data-desc="Essays, fiction &amp; analysis">
-        <span class="arc"><span class="an">IX &middot; HERMIT</span><br><span class="ar">RANK 10 &#9733;</span></span>
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 10h18"/><path d="M3 15l9 5 9-5"/></svg>
-        <span class="name">SUBSTACK</span>
-        <span class="desc">Essays, fiction &amp; analysis</span>
-        <span class="go pink">READ &rarr;</span>
+      <a class="card sub" href="https://lunasiagian.substack.com" target="_blank" rel="noopener"
+         data-ch="CH.01" data-name="SUBSTACK" data-desc="Essays, fiction &amp; analysis">
+        <span class="card-cur">&#9654;</span>
+        <span class="ch-no">CH.01</span>
+        <span class="icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"/><path d="M3 10h18"/><path d="M3 15l9 5 9-5"/></svg></span>
+        <span class="ch-main"><span class="name">SUBSTACK</span><span class="desc">Essays, fiction &amp; analysis</span></span>
+        <span class="signal" aria-label="signal: full"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="go">READ &rarr;</span>
       </a>
 
-      <a class="card dark gh" href="https://github.com/lunasiagian"
-         data-arc="THE MAGICIAN" data-rank="RANK 10 &#9733;" data-name="GITHUB" data-desc="The lab workbook">
-        <span class="arc"><span class="an">I &middot; MAGICIAN</span><br><span class="ar">RANK 10 &#9733;</span></span>
-        <svg class="ic" viewBox="0 0 24 24" fill="#ECE6D6"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0112 6.84c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.02 10.02 0 0022 12.26C22 6.58 17.52 2 12 2z"/></svg>
-        <span class="name">GITHUB</span>
-        <span class="desc">The lab workbook</span>
-        <span class="go cyan">CODE &rarr;</span>
+      <a class="card gh" href="https://github.com/lunasiagian" target="_blank" rel="noopener"
+         data-ch="CH.02" data-name="GITHUB" data-desc="The lab workbook">
+        <span class="card-cur">&#9654;</span>
+        <span class="ch-no">CH.02</span>
+        <span class="icon"><svg class="ic" viewBox="0 0 24 24" fill="#111"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0112 6.84c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.02 10.02 0 0022 12.26C22 6.58 17.52 2 12 2z"/></svg></span>
+        <span class="ch-main"><span class="name">GITHUB</span><span class="desc">The lab workbook</span></span>
+        <span class="signal" aria-label="signal: full"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="go">CODE &rarr;</span>
       </a>
 
-      <a class="card light ig" href="https://instagram.com/lunasiagian"
-         data-arc="THE STAR" data-rank="RANK 10 &#9733;" data-name="INSTAGRAM" data-desc="The visual diary">
-        <span class="arc"><span class="an">XVII &middot; STAR</span><br><span class="ar">RANK 10 &#9733;</span></span>
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#111" stroke="none"/></svg>
-        <span class="name">INSTAGRAM</span>
-        <span class="desc">The visual diary</span>
-        <span class="go yellow">LOOK &rarr;</span>
+      <a class="card ig" href="https://instagram.com/lunasiagian" target="_blank" rel="noopener"
+         data-ch="CH.03" data-name="INSTAGRAM" data-desc="The visual diary">
+        <span class="card-cur">&#9654;</span>
+        <span class="ch-no">CH.03</span>
+        <span class="icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#111" stroke="none"/></svg></span>
+        <span class="ch-main"><span class="name">INSTAGRAM</span><span class="desc">The visual diary</span></span>
+        <span class="signal" aria-label="signal: full"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="go">LOOK &rarr;</span>
       </a>
     </div>
 
-    <!-- P3 description readout -->
     <div class="readout" id="readout">
       <span class="cur">&#9654;</span>
-      <span class="ro-arc" id="roArc">THE HERMIT</span>
-      <span class="ro-txt" id="roTxt">Essays, fiction &amp; analysis</span>
+      <span class="ro-ch" id="roCh">CH.01</span>
+      <span class="ro-txt" id="roTxt">SUBSTACK — Essays, fiction &amp; analysis</span>
       <span class="hint">&#8593;&#8595; SELECT &middot; ENTER OPEN</span>
     </div>
 
     <footer>
       <span class="left">&#9733; &copy;2026 LUNA TALITA SIAGIAN</span>
-      <span class="right">MEMENTO MORI</span>
+      <span class="right">EST. JKT&mdash;YYZ</span>
     </footer>
 
   </main>
 
+<script src="assets/fx.js"></script>
 <script>
 (function(){
-  /* ---- live P3 almanac ---- */
+  /* ---- live status header ---- */
   var WD=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
   var MO=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
   function tod(h){
-    if(h<6) return "DARK HOUR";
+    if(h<6) return "LATE NIGHT";
     if(h<9) return "EARLY MORNING";
     if(h<12) return "MORNING";
-    if(h<14) return "LUNCHTIME";
+    if(h<14) return "MIDDAY";
     if(h<17) return "AFTERNOON";
-    if(h<19) return "AFTER SCHOOL";
+    if(h<19) return "GOLDEN HOUR";
     if(h<23) return "EVENING";
     return "LATE NIGHT";
   }
@@ -318,17 +308,17 @@
     ["\u{1F317}","LAST QUARTER"],["\u{1F318}","WANING CRESCENT"]
   ];
   function moon(d){
-    var syn=29.53058867, ref=Date.UTC(2000,0,6,18,14);     /* known new moon (Meeus) */
-    var age=((((d.getTime()-ref)/86400000)%syn)+syn)%syn;  /* lunar age, 0..29.53 days */
-    var i;                                                 /* principal phases get tight windows */
-    if(age<1.0||age>=28.53) i=0;        /* new */
-    else if(age<6.38)  i=1;             /* waxing crescent */
-    else if(age<8.38)  i=2;             /* first quarter (~7.38) */
-    else if(age<13.77) i=3;             /* waxing gibbous */
-    else if(age<15.77) i=4;             /* full (~14.77) */
-    else if(age<21.15) i=5;             /* waning gibbous */
-    else if(age<23.15) i=6;             /* last quarter (~22.15) */
-    else               i=7;             /* waning crescent */
+    var syn=29.53058867, ref=Date.UTC(2000,0,6,18,14);
+    var age=((((d.getTime()-ref)/86400000)%syn)+syn)%syn;
+    var i;
+    if(age<1.0||age>=28.53) i=0;
+    else if(age<6.38)  i=1;
+    else if(age<8.38)  i=2;
+    else if(age<13.77) i=3;
+    else if(age<15.77) i=4;
+    else if(age<21.15) i=5;
+    else if(age<23.15) i=6;
+    else               i=7;
     return PHASES[i];
   }
   function tick(){
@@ -343,25 +333,25 @@
   function set(id,t){var el=document.getElementById(id);if(el)el.textContent=t;}
   tick(); setInterval(tick,15000);
 
-  /* ---- P3 menu cursor + keyboard navigation ---- */
+  /* ---- P3R menu cursor + keyboard navigation ---- */
   var cards=[].slice.call(document.querySelectorAll("#links .card"));
-  var roArc=document.getElementById("roArc"), roTxt=document.getElementById("roTxt");
+  var roCh=document.getElementById("roCh"), roTxt=document.getElementById("roTxt");
   var idx=0;
   function activate(i,focus){
     idx=(i+cards.length)%cards.length;
     cards.forEach(function(c,n){c.classList.toggle("is-active",n===idx);});
     var c=cards[idx];
-    roArc.innerHTML=c.dataset.arc+" · "+c.dataset.rank;
+    roCh.textContent=c.dataset.ch;
     roTxt.innerHTML=c.dataset.name+" — "+c.dataset.desc;
     if(focus) c.focus();
   }
   var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
   function select(card){
     var href=card.getAttribute("href");
-    if(reduce||card.dataset.bursting){window.location.href=href;return;}
+    if(reduce||card.dataset.bursting){window.open(href,"_blank","noopener");return;}
     card.dataset.bursting="1";
     card.classList.add("burst");
-    setTimeout(function(){window.location.href=href;},250);
+    setTimeout(function(){window.open(href,"_blank","noopener");card.classList.remove("burst");delete card.dataset.bursting;},250);
   }
   cards.forEach(function(c,n){
     c.addEventListener("mouseenter",function(){activate(n,false);});
@@ -376,6 +366,20 @@
     }
   });
   activate(0,false);
+
+  /* ---- LUNA TALITA one-shot glitch (no loop; plays once per hover-in) ---- */
+  var bn=document.querySelector(".bigname");
+  if(bn){
+    bn.addEventListener("mouseenter",function(){
+      if(reduce) return;
+      bn.classList.remove("go");
+      void bn.offsetWidth;           /* reflow so it can replay on a fresh hover */
+      bn.classList.add("go");
+      clearTimeout(bn._t);
+      bn._t=setTimeout(function(){bn.classList.remove("go");},700);  /* safety: never stay stuck */
+    });
+    bn.addEventListener("animationend",function(){ bn.classList.remove("go"); });
+  }
 })();
 </script>
 </body>

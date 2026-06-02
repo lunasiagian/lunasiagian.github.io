@@ -1,0 +1,43 @@
+/* ============================================================
+   Shared FX layer — boot sweep, channel-switch transition,
+   CRT scanline/vignette overlays. Used by every page.
+   All motion is gated behind prefers-reduced-motion.
+   Neon (ZZZ acid): lime #C6FF00 · magenta #FF2E88 · cyan #00E5FF
+   ============================================================ */
+
+/* full-viewport CRT overlay (scanlines + vignette). Decorative, never blocks input. */
+#fx-crt{position:fixed;inset:0;z-index:9000;pointer-events:none;}
+#fx-crt::before{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(to bottom, rgba(0,0,0,0.16) 0 1px, transparent 1px 3px);
+  mix-blend-mode:multiply;opacity:.55;}
+#fx-crt::after{content:"";position:absolute;inset:0;
+  box-shadow:inset 0 0 140px rgba(0,0,0,0.55);
+  background:radial-gradient(120% 120% at 50% 50%, transparent 60%, rgba(0,0,0,0.35) 100%);}
+
+/* transition veil — LIGHT pop swipe (lime + magenta panels). Never a black screen. */
+#fx-veil{position:fixed;inset:0;z-index:9500;pointer-events:none;overflow:hidden;background:transparent;}
+#fx-veil .bar,#fx-veil .glitch{position:absolute;inset:-25% -45%;transform:translateX(-160%) skewX(-12deg);opacity:0;will-change:transform;}
+#fx-veil .bar{background:var(--fx-mag,#FF2E88);}       /* leading panel */
+#fx-veil .glitch{background:var(--fx-lime,#C6FF00);}    /* trailing panel */
+#fx-veil .label{display:none;}                          /* no TV label */
+
+/* swipe diagonally across and off — quick, light */
+@keyframes fxSwipe{
+  0%  {transform:translateX(-160%) skewX(-12deg);}
+  50% {transform:translateX(0)      skewX(-12deg);}
+  100%{transform:translateX(160%)   skewX(-12deg);}
+}
+
+/* BOOT (home, once per session): a quick pop swipe-in */
+#fx-veil.boot .bar{opacity:1;animation:fxSwipe .62s cubic-bezier(.7,0,.25,1) forwards;}
+#fx-veil.boot .glitch{opacity:1;animation:fxSwipe .62s cubic-bezier(.7,0,.25,1) .09s forwards;}
+
+/* WIPE (navigation): same swipe to mask the page cut */
+#fx-veil.wipe .bar{opacity:1;animation:fxSwipe .5s cubic-bezier(.7,0,.25,1) forwards;}
+#fx-veil.wipe .glitch{opacity:1;animation:fxSwipe .5s cubic-bezier(.7,0,.25,1) .08s forwards;}
+
+@media (prefers-reduced-motion:reduce){
+  #fx-crt::before{animation:none;}
+  #fx-veil,#fx-veil *{animation:none !important;}
+  #fx-veil{display:none;}
+}

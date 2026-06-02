@@ -9,8 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="writing.css">
+<link rel="stylesheet" href="../assets/fx.css">
 </head>
-<body>
+<body data-fx>
   <main class="page">
 
     <div class="chrome">
@@ -24,26 +25,18 @@
 
     <div class="subnav">
       <a class="back" href="../index.html"><span class="arr">&#9664;</span> BACK TO HOME</a>
-      <span class="crumb">IX &middot; THE HERMIT</span>
+      <span class="crumb">FIELD NOTES</span>
     </div>
 
     <!-- ===================== MASTHEAD ===================== -->
     <div class="masthead">
       <div class="halftone"></div>
-      <div class="ed-row">
-        <span>VOL. I <span class="dot">&middot;</span> NO. 1</span>
-        <span id="ed-date">&mdash; &mdash;</span>
-        <span>NEW ERIDU EDITION <span class="dot">&middot;</span> &yen;80</span>
+      <div class="status">
+        <span class="sticker">FIELD NOTES</span>
+        <span class="date" id="ed-date">&mdash;</span>
       </div>
       <div class="nameplate">THE&nbsp;<span class="neon">COMPENDIUM</span></div>
       <div class="tagline">ESSAYS &middot; FICTION &middot; ANALYSIS</div>
-    </div>
-    <div class="rule2"></div>
-
-    <!-- broadcast strip -->
-    <div class="broadcast">
-      <span class="live">ON AIR</span>
-      <div class="ticker"><span>ESSAYS &middot; FICTION &middot; ANALYSIS &middot; ON LANGUAGE, CODE &amp; MEANING &middot; I EXPLORE WHAT THINGS MEAN &mdash; THROUGH CODE, THROUGH FICTION &middot;&nbsp;</span></div>
     </div>
 
     <!-- ===================== FRONT PAGE ===================== -->
@@ -58,7 +51,7 @@
            =========================================================== -->
 
       <a class="story" href="on-what-things-mean.html">
-        <span class="kicker">THE MOON</span>
+        <span class="kicker">ESSAY</span>
         <div class="head">On What Things Mean</div>
         <div class="dateline">
           <span>JUN 2, 2026</span><span class="sep">&#9670;</span>
@@ -72,11 +65,12 @@
 
     <footer>
       <span class="left">&#9733; &copy;2026 LUNA TALITA SIAGIAN</span>
-      <span class="right">MEMENTO MORI</span>
+      <span class="right">EST. JKT&mdash;YYZ</span>
     </footer>
 
   </main>
 
+<script src="../assets/fx.js"></script>
 <script>
   /* live dateline in the masthead edition row */
   (function(){
