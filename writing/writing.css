@@ -64,7 +64,7 @@ body{
 .entry .date{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--muted);}
 .entry .rt{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--muted);margin-left:auto;}
 .entry h2{font-size:22px;line-height:1.1;font-weight:900;letter-spacing:-0.3px;}
-.entry .dek{margin-top:6px;font-size:14px;line-height:1.5;color:var(--muted);font-family:'Newsreader',Georgia,serif;}
+.entry .dek{margin-top:6px;font-size:14px;line-height:1.5;color:var(--muted);font-family:'Space Grotesk',ui-sans-serif,sans-serif;}
 
 /* ---- single essay article ---- */
 .article{padding:6px 0 0;}
@@ -74,10 +74,10 @@ body{
 .article .head .arc-tag{font-size:9px;letter-spacing:1px;font-weight:900;color:var(--yellow);background:var(--ink);padding:3px 9px;border-radius:5px;}
 .article .head .date,.article .head .rt{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--ink);}
 .article .head h1{position:relative;font-size:40px;line-height:0.95;font-weight:900;letter-spacing:-0.8px;color:var(--cream);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--ink);}
-.article .head .dek{position:relative;margin-top:14px;font-family:'Newsreader',Georgia,serif;font-size:17px;line-height:1.5;color:var(--ink);font-weight:500;max-width:90%;}
+.article .head .dek{position:relative;margin-top:14px;font-family:'Space Grotesk',ui-sans-serif,sans-serif;font-size:17px;line-height:1.5;color:var(--ink);font-weight:500;max-width:90%;}
 
 /* body typography — readable long-form serif */
-.body{padding:8px 28px 28px;font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.72;color:#1c1c1a;}
+.body{padding:8px 28px 28px;font-family:'Space Grotesk',ui-sans-serif,sans-serif;font-size:17px;line-height:1.62;color:#1c1c1a;letter-spacing:-0.1px;}
 .body > *{max-width:600px;margin-left:auto;margin-right:auto;}
 .body p{margin:0 0 1.1em;}
 .body h2{font-family:'Archivo',sans-serif;font-size:24px;font-weight:900;letter-spacing:-0.3px;margin:1.6em auto 0.5em;line-height:1.15;}
