@@ -1,0 +1,115 @@
+/* ============================================================
+   Luna Talita Siagian — Writing
+   Shared stylesheet for the essay index and all essay pages.
+   ZZZ comic-zine surface · Persona 3 UX framing.
+   Edit ONCE here; every essay updates.
+   ============================================================ */
+
+:root{
+  --pink:#EF2D7E;
+  --cyan:#16E0E0;
+  --yellow:#F5E000;
+  --cream:#ECE6D6;
+  --ink:#111111;
+  --muted:#5F5E5A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--cream);
+  font-family:'Archivo',system-ui,sans-serif;
+  color:var(--ink);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:24px 16px;
+}
+.page{
+  width:100%;
+  max-width:720px;
+  background:var(--cream);
+  border:4px solid var(--ink);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+/* browser-chrome bar (matches homepage) */
+.chrome{background:var(--ink);display:flex;align-items:center;gap:10px;padding:10px 16px;}
+.dots{display:flex;gap:5px;}
+.dots span{width:10px;height:10px;border-radius:50%;display:block;}
+.urlbar{flex:1;background:#2a2a2a;border-radius:20px;text-align:center;color:var(--cream);font-size:13px;letter-spacing:2px;padding:5px 0;font-weight:500;}
+
+/* back / breadcrumb bar (P3 menu return) */
+.subnav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:3px solid var(--ink);flex-wrap:wrap;gap:8px;}
+.subnav .back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;letter-spacing:1px;transition:transform .1s ease;}
+.subnav .back:hover{transform:translateX(-3px);}
+.subnav .back .arr{color:var(--pink);font-size:16px;}
+.subnav .crumb{font-size:11px;letter-spacing:3px;font-weight:700;color:var(--muted);}
+
+/* ---- archive header (index page) ---- */
+.arc-hero{position:relative;margin:18px;border:4px solid var(--ink);border-radius:14px;background:var(--pink);overflow:hidden;padding:18px;}
+.arc-hero .halftone{position:absolute;inset:0;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.3px);background-size:11px 11px;opacity:0.16;}
+.arc-hero .label{position:relative;font-size:11px;letter-spacing:3px;font-weight:700;color:var(--ink);background:var(--yellow);display:inline-block;padding:3px 12px;border-radius:20px;border:2px solid var(--ink);}
+.arc-hero h1{position:relative;margin-top:12px;font-size:48px;line-height:0.9;font-weight:900;color:var(--cream);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--ink);}
+.arc-hero .blurb{position:relative;margin-top:14px;background:var(--ink);display:inline-block;padding:8px 14px;border-radius:8px;}
+.arc-hero .blurb span{color:var(--yellow);font-size:14px;font-weight:500;}
+
+/* ---- essay list ---- */
+.list{display:flex;flex-direction:column;gap:12px;padding:6px 18px 4px;}
+.entry{position:relative;display:block;text-decoration:none;border:4px solid var(--ink);border-radius:12px;background:var(--cream);padding:16px 18px;box-shadow:5px 5px 0 var(--ink);transition:transform .12s ease,box-shadow .12s ease;}
+.entry:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--pink);}
+.entry::before{content:"\25B6";position:absolute;left:-2px;top:24px;transform:translate(-130%,0) scale(.6);color:var(--pink);font-size:18px;opacity:0;text-shadow:2px 2px 0 var(--ink);transition:transform .12s ease,opacity .12s ease;}
+.entry:hover::before{opacity:1;transform:translate(-130%,0) scale(1);}
+.entry .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+.entry .arc-tag{font-size:9px;letter-spacing:1px;font-weight:900;color:#fff;background:var(--ink);padding:3px 9px;border-radius:5px;}
+.entry .date{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--muted);}
+.entry .rt{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--muted);margin-left:auto;}
+.entry h2{font-size:22px;line-height:1.1;font-weight:900;letter-spacing:-0.3px;}
+.entry .dek{margin-top:6px;font-size:14px;line-height:1.5;color:var(--muted);font-family:'Newsreader',Georgia,serif;}
+
+/* ---- single essay article ---- */
+.article{padding:6px 0 0;}
+.article .head{margin:18px;border:4px solid var(--ink);border-radius:14px;background:var(--cyan);overflow:hidden;padding:20px 18px;position:relative;}
+.article .head .halftone{position:absolute;inset:0;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.3px);background-size:11px 11px;opacity:0.14;}
+.article .head .meta{position:relative;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.article .head .arc-tag{font-size:9px;letter-spacing:1px;font-weight:900;color:var(--yellow);background:var(--ink);padding:3px 9px;border-radius:5px;}
+.article .head .date,.article .head .rt{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--ink);}
+.article .head h1{position:relative;font-size:40px;line-height:0.95;font-weight:900;letter-spacing:-0.8px;color:var(--cream);-webkit-text-stroke:2px var(--ink);text-shadow:4px 4px 0 var(--ink);}
+.article .head .dek{position:relative;margin-top:14px;font-family:'Newsreader',Georgia,serif;font-size:17px;line-height:1.5;color:var(--ink);font-weight:500;max-width:90%;}
+
+/* body typography — readable long-form serif */
+.body{padding:8px 28px 28px;font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.72;color:#1c1c1a;}
+.body > *{max-width:600px;margin-left:auto;margin-right:auto;}
+.body p{margin:0 0 1.1em;}
+.body h2{font-family:'Archivo',sans-serif;font-size:24px;font-weight:900;letter-spacing:-0.3px;margin:1.6em auto 0.5em;line-height:1.15;}
+.body h3{font-family:'Archivo',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.3px;margin:1.4em auto 0.4em;}
+.body a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--pink);text-decoration-thickness:2px;text-underline-offset:2px;}
+.body a:hover{background:var(--yellow);}
+.body blockquote{border-left:4px solid var(--pink);background:rgba(0,0,0,0.03);padding:10px 18px;margin:1.4em auto;font-style:italic;}
+.body em{font-style:italic;}
+.body strong{font-weight:700;}
+.body hr{border:none;border-top:3px dashed var(--ink);max-width:120px;margin:2em auto;opacity:0.5;}
+.body code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:0.85em;background:var(--ink);color:var(--cream);padding:1px 6px;border-radius:4px;}
+.body ul,.body ol{margin:0 auto 1.1em;padding-left:1.3em;}
+.body li{margin-bottom:0.4em;}
+.body figure{margin:1.6em auto;}
+.body figure img{max-width:100%;border:4px solid var(--ink);border-radius:10px;display:block;}
+.body figcaption{font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:0.5px;color:var(--muted);margin-top:8px;text-align:center;}
+
+/* essay footer nav (cross-post + back) */
+.essay-foot{margin:22px 28px;border-top:3px solid var(--ink);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.essay-foot .substack{text-decoration:none;font-weight:700;font-size:12px;letter-spacing:1px;color:var(--ink);border:3px solid var(--ink);border-radius:8px;padding:6px 14px;box-shadow:3px 3px 0 var(--pink);transition:transform .1s ease;}
+.essay-foot .substack:hover{transform:translate(-1px,-1px);}
+.essay-foot .more{text-decoration:none;font-weight:700;font-size:12px;letter-spacing:1px;color:var(--muted);}
+.essay-foot .more:hover{color:var(--ink);}
+
+/* footer (matches homepage) */
+footer{display:flex;align-items:center;justify-content:space-between;background:var(--ink);padding:9px 18px;flex-wrap:wrap;gap:8px;}
+footer .left{color:var(--cyan);font-size:10px;letter-spacing:3px;}
+footer .right{color:var(--pink);font-size:10px;letter-spacing:4px;font-weight:900;}
+
+@media (max-width:520px){
+  .arc-hero h1{font-size:36px;}
+  .article .head h1{font-size:30px;}
+  .body{padding:8px 18px 24px;font-size:17px;}
+  .entry .rt{margin-left:0;width:100%;}
+}

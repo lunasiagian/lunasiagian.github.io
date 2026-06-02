@@ -179,7 +179,7 @@
 
     <nav>
       <a href="#">HOME</a>
-      <a href="#writing">WRITING</a>
+      <a href="writing/">WRITING</a>
       <a href="#work">WORK</a>
       <a href="#contact" class="contact">CONTACT</a>
     </nav>
@@ -299,10 +299,17 @@
     ["\u{1F317}","LAST QUARTER"],["\u{1F318}","WANING CRESCENT"]
   ];
   function moon(d){
-    var syn=29.53058867, ref=Date.UTC(2000,0,6,18,14);
-    var days=(d.getTime()-ref)/86400000;
-    var p=((days%syn)+syn)%syn / syn;       /* 0..1 */
-    var i=Math.floor(p*8+0.5)%8;
+    var syn=29.53058867, ref=Date.UTC(2000,0,6,18,14);     /* known new moon (Meeus) */
+    var age=((((d.getTime()-ref)/86400000)%syn)+syn)%syn;  /* lunar age, 0..29.53 days */
+    var i;                                                 /* principal phases get tight windows */
+    if(age<1.0||age>=28.53) i=0;        /* new */
+    else if(age<6.38)  i=1;             /* waxing crescent */
+    else if(age<8.38)  i=2;             /* first quarter (~7.38) */
+    else if(age<13.77) i=3;             /* waxing gibbous */
+    else if(age<15.77) i=4;             /* full (~14.77) */
+    else if(age<21.15) i=5;             /* waning gibbous */
+    else if(age<23.15) i=6;             /* last quarter (~22.15) */
+    else               i=7;             /* waning crescent */
     return PHASES[i];
   }
   function tick(){
