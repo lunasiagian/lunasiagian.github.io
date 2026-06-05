@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epistemic Normativity — Sakapana Terminal</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body data-fog="none">
+    
+    <div class="tech-frame frame-top"></div>
+    <div class="tech-frame frame-bottom"></div>
+    <div class="tech-frame frame-left"></div>
+    <div class="tech-frame frame-right">
+        <div class="hud-rec-edge"><span class="pip"></span> RECORDING <span id="clock">[time]</span></div>
+    </div>
+
+    <div id="app-container">
+        <header class="sys-bar">
+            <div class="sys-left">
+                <a href="writing.html" class="sys-btn back-btn" style="text-decoration:none;">←</a>
+                <div class="sys-id"><span class="moth-glyph grey">■</span> ARCHIVE </div>
+            </div>
+            <div class="sys-right">
+                <div class="sys-pill est-badge">COLLEGIUM EST.2026</div>
+                <div class="sys-pill telemetry-res capsule-res"><span id="res-value">0</span>/240 RES</div>
+                <div class="sys-pill nav-active">READING_MODE.EXE</div>
+            </div>
+        </header>
+
+        <div class="chrono-feed-wrapper">
+            <div class="chrono-label">SYS.STATUS</div>
+            <div class="ticker-viewport">
+                <div class="chrono-ticker">
+                    <span class="ticker-item" id="ticker-date"></span>
+                    <span class="ticker-item" id="ticker-moon"></span>
+                    <span class="ticker-item telemetry-sig">SIG.100</span>
+                </div>
+            </div>
+            <div class="chrono-edge">GUI.ONLINE</div>
+        </div>
+
+        <main class="dashboard-grid page-transition" style="display: flex;">
+            <div class="document-viewer">
+                <header class="doc-header">
+                    <h1 class="doc-title">EPISTEMIC NORMATIVITY</h1>
+                    <div class="doc-meta">
+                        <span>AUTHOR: LUNA TALITA</span>
+                        <span>DATE: 2026.06.01</span>
+                        <span class="fog-uncertain" data-conf="0.92">CONF: 0.92</span>
+                        <span>ID: REF-88A9B</span>
+                    </div>
+                </header>
+
+                <div class="doc-body">
+                    <p>The question of whether epistemic normativity essentially encodes moral values has long haunted the corridors of the Collegium. When we speak of a "justified" belief in the context of the fog, are we speaking merely of truth-tracking, or are we making a covert moral judgment about the agent holding the belief?</p>
+
+                    <p>In classical epistemology, the norms governing belief formation were considered strictly independent of ethics. A belief was justified if it was formed through reliable cognitive processes or supported by adequate evidence. However, in the lived reality of Sakapana, where belief and perception physically interact with the manifestations of the fog, this boundary dissolves.</p>
+
+                    <blockquote>
+                        "To observe a tear in the civic architecture without acknowledging it is not a failure of perception; it is a failure of morality. The ward requires our collective consensus to remain stable."<br>
+                        — <em>Collegium Primer, Volume II</em>
+                    </blockquote>
+
+                    <p>Consider the phenomenon of a <a href="#">Class IV manifestation</a>. If a Surveyor refuses to believe their telemetry data, dismissing a massive structural anomaly as a sensor glitch, their epistemic failure has immediate, catastrophic moral consequences. The collapse of the ward is directly precipitated by the failure to adhere to the epistemic norm of evidence-responsiveness.</p>
+
+                    <p>It is my contention that within this architecture, there is no purely epistemic failure. To believe falsely, when the truth is physically binding the civic infrastructure together, is an act of civic betrayal. The 'ought' of belief is inextricably bound to the 'ought' of survival.</p>
+
+                    <p>We must therefore reconstruct our understanding of logic not as a mere abstract calculus of truth values, but as the foundational ethics of our physical reality. To be illogical here is not merely to be wrong; it is to be dangerous.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/fx.js"></script>
+</body>
+</html>

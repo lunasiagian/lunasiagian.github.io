@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMMS — Sakapana Terminal</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body data-fog="none">
+    
+    <div class="tech-frame frame-top"></div>
+    <div class="tech-frame frame-bottom"></div>
+    <div class="tech-frame frame-left"></div>
+    <div class="tech-frame frame-right">
+        <div class="hud-rec-edge"><span class="pip"></span> RECORDING <span id="clock">[time]</span></div>
+    </div>
+
+    <div id="app-container">
+        <header class="sys-bar">
+            <div class="sys-left">
+                <a href="index.html" class="sys-btn back-btn" style="text-decoration:none;">←</a>
+                <div class="sys-id"><span class="moth-glyph grey">■</span> ARCHIVE </div>
+            </div>
+            <div class="sys-right">
+                <div class="sys-pill est-badge">COLLEGIUM EST.2026</div>
+                <div class="sys-pill telemetry-res capsule-res"><span id="res-value">0</span>/240 RES</div>
+                <div class="sys-pill nav-active">COMMS.EXE</div>
+            </div>
+        </header>
+
+        <div class="chrono-feed-wrapper">
+            <div class="chrono-label">SYS.STATUS</div>
+            <div class="ticker-viewport">
+                <div class="chrono-ticker">
+                    <span class="ticker-item" id="ticker-date"></span>
+                    <span class="ticker-item" id="ticker-moon"></span>
+                    <span class="ticker-item telemetry-sig">SIG.100</span>
+                </div>
+            </div>
+            <div class="chrono-edge">GUI.ONLINE</div>
+        </div>
+
+        <main class="dashboard-grid page-transition">
+            <div class="dash-left" style="grid-column: 1 / -1;">
+                <section class="panel">
+                    <div class="panel-header">
+                        <span class="panel-title">UPLINK // COMMS</span>
+                        <div class="panel-controls"><span>_</span> <span>[ ]</span> <span>X</span></div>
+                    </div>
+                    <div class="panel-content comms-container">
+                        
+                        <div class="comms-header-status">
+                            <span>UPLINK STATUS: ACTIVE</span>
+                            <span>·</span>
+                            <span class="telemetry-sig">SIG.100</span>
+                            <span>·</span>
+                            <span>NODE JKT</span>
+                        </div>
+
+                        <div class="comms-list">
+                            <a href="mailto:hello@lunasiagian.io" class="comms-row">
+                                <div class="comms-left">
+                                    <span>COMMS.01</span>
+                                    <span class="moth-glyph">✉</span>
+                                </div>
+                                <div class="comms-middle">
+                                    <h3>SECURE EMAIL</h3>
+                                    <p>hello@lunasiagian.io</p>
+                                </div>
+                                <div class="comms-right">
+                                    <button class="transmit-btn">TRANSMIT</button>
+                                </div>
+                            </a>
+
+                            <a href="https://lunasiagian.substack.com" target="_blank" class="comms-row">
+                                <div class="comms-left">
+                                    <span>COMMS.02</span>
+                                    <span class="moth-glyph">■</span>
+                                </div>
+                                <div class="comms-middle">
+                                    <h3>SUBSTACK</h3>
+                                    <p>lunasiagian.substack.com</p>
+                                </div>
+                                <div class="comms-right">
+                                    <button class="transmit-btn">TRANSMIT</button>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/lunasiagian" target="_blank" class="comms-row">
+                                <div class="comms-left">
+                                    <span>COMMS.03</span>
+                                    <span class="moth-glyph">◆</span>
+                                </div>
+                                <div class="comms-middle">
+                                    <h3>GITHUB</h3>
+                                    <p>github.com/lunasiagian</p>
+                                </div>
+                                <div class="comms-right">
+                                    <button class="transmit-btn">TRANSMIT</button>
+                                </div>
+                            </a>
+
+                            <a href="https://instagram.com/lunasiagian" target="_blank" class="comms-row">
+                                <div class="comms-left">
+                                    <span>COMMS.04</span>
+                                    <span class="moth-glyph">●</span>
+                                </div>
+                                <div class="comms-middle">
+                                    <h3>INSTAGRAM</h3>
+                                    <p>@lunasiagian</p>
+                                </div>
+                                <div class="comms-right">
+                                    <button class="transmit-btn">TRANSMIT</button>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="comms-linkedin">
+                            <a href="https://linkedin.com/in/lunasiagian" target="_blank">AUXILIARY: LINKEDIN NETWORK</a>
+                        </div>
+                        
+                        <div class="comms-footer">
+                            <span>CHRONICLERS' SOCIETY: RELAY OPERATIONAL</span>
+                            <span>RESPONSE TIME: 24-48 HRS</span>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/fx.js"></script>
+</body>
+</html>

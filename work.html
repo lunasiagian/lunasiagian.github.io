@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports — Sakapana Terminal</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body data-fog="none">
+    
+    <div class="tech-frame frame-top"></div>
+    <div class="tech-frame frame-bottom"></div>
+    <div class="tech-frame frame-left"></div>
+    <div class="tech-frame frame-right">
+        <div class="hud-rec-edge"><span class="pip"></span> RECORDING <span id="clock">[time]</span></div>
+    </div>
+
+    <div id="app-container">
+        <header class="sys-bar">
+            <div class="sys-left">
+                <a href="index.html" class="sys-btn back-btn" style="text-decoration:none;">←</a>
+                <div class="sys-id"><span class="moth-glyph amber">■</span> ARCHIVE </div>
+            </div>
+            <div class="sys-right">
+                <div class="sys-pill est-badge">COLLEGIUM EST.2026</div>
+                <div class="sys-pill telemetry-res capsule-res"><span id="res-value">0</span>/240 RES</div>
+                <div class="sys-pill nav-active">REPORTS.EXE</div>
+            </div>
+        </header>
+
+        <div class="chrono-feed-wrapper">
+            <div class="chrono-label">SYS.STATUS</div>
+            <div class="ticker-viewport">
+                <div class="chrono-ticker">
+                    <span class="ticker-item" id="ticker-date"></span>
+                    <span class="ticker-item" id="ticker-moon"></span>
+                    <span class="ticker-item telemetry-sig">SIG.100</span>
+                </div>
+            </div>
+            <div class="chrono-edge">GUI.ONLINE</div>
+        </div>
+
+        <main class="dashboard-grid page-transition">
+            <div class="dash-left" style="grid-column: 1 / -1;">
+                <section class="panel">
+                    <div class="panel-header">
+                        <span class="panel-title">FILED_REPORTS // DIRECTORY</span>
+                        <div class="panel-controls"><span>_</span> <span>[ ]</span> <span>X</span></div>
+                    </div>
+                    <div class="panel-content subpage-container" style="padding: 25px;">
+                        
+                        <div class="report-list">
+                            <!-- Report 1 -->
+                            <a href="report-entry.html" class="report-card">
+                                <div class="report-card-top">
+                                    <div class="report-cover-meta-left">
+                                        <span>REP.2026.001</span>
+                                        <span class="report-tag">TECHNICAL REPORT</span>
+                                    </div>
+                                    <div class="report-cover-meta-right">
+                                        <span>STATUS: IN PROGRESS</span>
+                                        <span>2026.04.12</span>
+                                    </div>
+                                </div>
+                                <div class="report-card-middle">
+                                    <div class="report-card-info">
+                                        <h3>SAKAPANA KNOWLEDGE GRAPH</h3>
+                                        <p>Modeling temporal access and shifting edges within a non-linear archive.</p>
+                                    </div>
+                                    <div class="report-card-action">
+                                        <button class="transmit-btn">ACCESS</button>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <!-- Report 2 -->
+                            <a href="#" class="report-card" style="opacity: 0.5;">
+                                <div class="report-card-top">
+                                    <div class="report-cover-meta-left">
+                                        <span>REP.2026.002</span>
+                                        <span class="report-tag">PROTOTYPE</span>
+                                    </div>
+                                    <div class="report-cover-meta-right">
+                                        <span>STATUS: DEPLOYED</span>
+                                        <span>2026.05.01</span>
+                                    </div>
+                                </div>
+                                <div class="report-card-middle">
+                                    <div class="report-card-info">
+                                        <h3>DYNAMIC FOG ENGINE</h3>
+                                        <p>Cryptographic hash logic linking system time to UI environmental conditions.</p>
+                                    </div>
+                                    <div class="report-card-action">
+                                        <button class="transmit-btn" style="border-color:var(--royal); color:var(--royal);">ACCESS</button>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Report 3 -->
+                            <a href="#" class="report-card" style="opacity: 0.2; pointer-events: none;">
+                                <div class="report-card-top">
+                                    <div class="report-cover-meta-left">
+                                        <span>REP.2025.044</span>
+                                        <span class="report-tag" style="background:var(--crimson);">CORRUPTED</span>
+                                    </div>
+                                    <div class="report-cover-meta-right">
+                                        <span>STATUS: OFFLINE</span>
+                                        <span>2025.11.23</span>
+                                    </div>
+                                </div>
+                                <div class="report-card-middle">
+                                    <div class="report-card-info">
+                                        <h3 style="color:var(--royal);">[DATA EXPUNGED]</h3>
+                                        <p>Terminal connection severed during manifestation event.</p>
+                                    </div>
+                                    <div class="report-card-action">
+                                        <button class="transmit-btn" style="border-color:var(--royal); color:var(--royal);">LOCKED</button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/fx.js"></script>
+</body>
+</html>

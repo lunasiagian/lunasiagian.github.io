@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing — Sakapana Terminal</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body data-fog="none">
+    
+    <div class="tech-frame frame-top"></div>
+    <div class="tech-frame frame-bottom"></div>
+    <div class="tech-frame frame-left"></div>
+    <div class="tech-frame frame-right">
+        <div class="hud-rec-edge"><span class="pip"></span> RECORDING <span id="clock">[time]</span></div>
+    </div>
+
+    <div id="app-container">
+        <header class="sys-bar">
+            <div class="sys-left">
+                <a href="index.html" class="sys-btn back-btn" style="text-decoration:none;">←</a>
+                <div class="sys-id"><span class="moth-glyph grey">■</span> ARCHIVE </div>
+            </div>
+            <div class="sys-right">
+                <div class="sys-pill est-badge">COLLEGIUM EST.2026</div>
+                <div class="sys-pill telemetry-res capsule-res"><span id="res-value">0</span>/240 RES</div>
+                <div class="sys-pill nav-active">DISPATCHES.EXE</div>
+            </div>
+        </header>
+
+        <div class="chrono-feed-wrapper">
+            <div class="chrono-label">SYS.STATUS</div>
+            <div class="ticker-viewport">
+                <div class="chrono-ticker">
+                    <span class="ticker-item" id="ticker-date"></span>
+                    <span class="ticker-item" id="ticker-moon"></span>
+                    <span class="ticker-item telemetry-sig">SIG.100</span>
+                </div>
+            </div>
+            <div class="chrono-edge">GUI.ONLINE</div>
+        </div>
+
+        <main class="dashboard-grid page-transition">
+            <div class="dash-left" style="grid-column: 1 / -1;">
+                <section class="panel">
+                    <div class="panel-header">
+                        <span class="panel-title">DISPATCH_FEED // FIELD NOTES</span>
+                        <div class="panel-controls"><span>_</span> <span>[ ]</span> <span>X</span></div>
+                    </div>
+                    <div class="panel-content subpage-container" style="padding: 25px;">
+                        
+                        <div class="ledger-header">
+                            <div class="ledger-col">TIMESTAMP</div>
+                            <div class="ledger-col">CONF</div>
+                            <div class="ledger-col">ENTRY_TITLE</div>
+                            <div class="ledger-col" style="text-align: right;">STATUS</div>
+                        </div>
+                        
+                        <div class="ledger-feed">
+                            <a href="dispatch-entry.html" class="ledger-row">
+                                <div class="ledger-col">2026.06.01</div>
+                                <div class="ledger-col fog-uncertain" data-conf="0.92">0.92</div>
+                                <div class="ledger-title">EPISTEMIC NORMATIVITY</div>
+                                <div class="ledger-status">VERIFIED</div>
+                            </a>
+
+                            <a href="dispatch-entry.html" class="ledger-row">
+                                <div class="ledger-col">2026.05.14</div>
+                                <div class="ledger-col fog-uncertain" data-conf="0.88">0.88</div>
+                                <div class="ledger-title">LANGUAGE UNDER LLMS</div>
+                                <div class="ledger-status">VERIFIED</div>
+                            </a>
+
+                            <a href="#" class="ledger-row" style="opacity: 0.3; pointer-events: none;">
+                                <div class="ledger-col">2026.04.03</div>
+                                <div class="ledger-col">0.00</div>
+                                <div class="ledger-title">[DATA EXPUNGED]</div>
+                                <div class="ledger-status">CORRUPTED</div>
+                            </a>
+                            
+                            <a href="#" class="ledger-row" style="opacity: 0.3; pointer-events: none;">
+                                <div class="ledger-col">2026.02.19</div>
+                                <div class="ledger-col">0.00</div>
+                                <div class="ledger-title">[DATA EXPUNGED]</div>
+                                <div class="ledger-status">CORRUPTED</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/fx.js"></script>
+</body>
+</html>

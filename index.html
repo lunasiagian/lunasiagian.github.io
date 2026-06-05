@@ -1,66 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luna Siagian | Data Analyst</title>
-  <style>
-    body {
-      background-color: #36013f;
-      color: #F9DFB1;
-      font-family: sans-serif;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.5rem;
-      line-height: 1.5;
-    }
-
-    a {
-      color: #F9DFB1;
-      text-decoration: none;
-    }
-
-    .container {
-      width: 800px;
-      margin: 0 auto;
-    }
-
-    .header {
-      text-align: center;
-    }
-
-    .main {
-      padding: 2rem 0;
-    }
-
-    .footer {
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakapana Terminal — LUNA</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="container">
-    <header class="header">
-      <h1>Luna Siagian</h1>
-      <h2>Data Analyst</h2>
-    </header>
+<body data-fog="none">
+    
+    <!-- Technical Frame Overlays -->
+    <div class="tech-frame frame-top"></div>
+    <div class="tech-frame frame-bottom"></div>
+    <div class="tech-frame frame-left"></div>
+    <div class="tech-frame frame-right">
+        <div class="hud-rec-edge"><span class="pip"></span> RECORDING <span id="clock">[time]</span></div>
+    </div>
 
-    <main class="main">
-      <p>I specialize in uncovering invaluable narratives within complex datasets. My passion lies in deciphering data puzzles and crafting pragmatic, data-backed solutions.</p>
+    <div id="app-container">
+        
+        <!-- System Bar -->
+        <header class="sys-bar">
+            <div class="sys-left">
+                <button class="sys-btn back-btn" aria-label="Go Back">←</button>
+                <div class="sys-id"><span class="moth-glyph crimson">■</span> LUNA <span class="sys-lv">(LV <span id="age">27</span>)</span></div>
+            </div>
+            <div class="sys-right">
+                <div class="sys-pill est-badge">COLLEGIUM EST.2026</div>
+                <div class="sys-pill telemetry-res capsule-res"><span id="res-value">0</span>/240 RES</div>
+                <div class="sys-pill nav-active">TERMINAL.EXE</div>
+            </div>
+        </header>
 
-      <p>Ready to delve deeper into the power of data and unlock its potential for your business? <a href="#">Let's connect.</a></p>
-    </main>
+        <!-- Civic Notice Bar -->
+        <div class="chrono-feed-wrapper">
+            <div class="chrono-label">SYS.STATUS</div>
+            <div class="ticker-viewport">
+                <div class="chrono-ticker" id="ticker">
+                    <span class="ticker-item" id="ticker-date"></span>
+                    <span class="ticker-item" id="ticker-moon"></span>
+                    <span class="ticker-item">WARD 1 // SEC.JKT // STABLE</span>
+                    <span class="ticker-item telemetry-sig">SIG.100</span>
+                </div>
+            </div>
+            <div class="chrono-edge">GUI.ONLINE</div>
+        </div>
 
-    <footer class="footer">
-      <p>Copyright &copy; 2023 Luna Siagian</p>
-    </footer>
-  </div>
+        <main class="dashboard-grid page-transition">
+            
+            <div class="dash-left">
+                <!-- Identity Panel -->
+                <section class="panel identity-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">DOSSIER.EXE</span>
+                        <div class="panel-controls"><span>_</span> <span>[ ]</span> <span>X</span></div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="role-tags">LINGUIST // PROGRAMMER // WRITER</div>
+                        <h1 class="hero-name">LUNA<br>TALITA</h1>
+                        
+                        <div class="identity-stamp">
+                            <span class="stamp-title">VERIFIED.RECORD</span>
+                            BUILD 2026.06<br>NODE: JKT
+                        </div>
+                        
+                        <p class="tagline">I explore what things mean — through code, through fiction.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="dash-right">
+                <!-- Top Nav Pills -->
+                <nav class="pill-nav">
+                    <a href="index.html" class="nav-pill active">TERMINAL</a>
+                    <a href="writing.html" class="nav-pill">DISPATCHES</a>
+                    <a href="work.html" class="nav-pill">REPORTS</a>
+                    <a href="contact.html" class="nav-pill">COMMS <span class="notification-dot"></span></a>
+                </nav>
+
+                <!-- Currently Panel (Moved from left) -->
+                <section class="panel currently-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">CURRENT_MANDATE.SYS</span>
+                        <div class="panel-controls"><span>_</span> <span>[ ]</span> <span>X</span></div>
+                    </div>
+                    <div class="panel-content currently-grid">
+                        <div class="curr-label">READING</div>
+                        <div class="curr-val">Katabasis by R.F. Kuang</div>
+                        
+                        <div class="curr-label">BUILDING</div>
+                        <div class="curr-val">infrastructure for a world that forgets itself</div>
+                        
+                        <div class="curr-label">WRITING</div>
+                        <div class="curr-val">field notes on internet boredom</div>
+                        
+                        <div class="curr-label">LOC.SECTOR</div>
+                        <div class="curr-val" style="border-bottom:none;">JKT</div>
+                    </div>
+                </section>
+
+                <section class="panel" id="sakapana-archive">
+                    <div class="panel-header">
+                        <span class="panel-title">SAKAPANA_ARCHIVE.EXE</span>
+                        <div class="panel-controls"><span>_</span> <span>[ ]</span> <span>X</span></div>
+                    </div>
+                    <div class="panel-content" style="padding:0;">
+                        <div class="archive-entries">
+
+                            <a class="archive-row" href="./sakapana/fiction/">
+                            <div class="archive-sigil">◈</div>
+                            <div class="archive-info">
+                                <div class="archive-name">FICTION</div>
+                                <div class="archive-desc">The worldbuilding narratives</div>
+                            </div>
+                            <div class="archive-status active">ACCESS →</div>
+                            </a>
+
+                            <div class="archive-row locked">
+                            <div class="archive-sigil">◌</div>
+                            <div class="archive-info">
+                                <div class="archive-name">KNOWLEDGE GRAPH</div>
+                                <div class="archive-desc">Temporal relational archive</div>
+                            </div>
+                            <div class="archive-status pending">LOCKED</div>
+                            </div>
+
+                            <a class="archive-row" href="./sakapana/field-records/">
+                            <div class="archive-sigil">◈</div>
+                            <div class="archive-info">
+                                <div class="archive-name">FIELD RECORDS</div>
+                                <div class="archive-desc">Guild documents &amp; fog event logs</div>
+                            </div>
+                            <div class="archive-status active">ACCESS →</div>
+                            </a>
+
+                            <div class="archive-row locked">
+                            <div class="archive-sigil">◌</div>
+                            <div class="archive-info">
+                                <div class="archive-name">CARTOGRAPHER'S LOG</div>
+                                <div class="archive-desc">Lyra's incomplete maps</div>
+                            </div>
+                            <div class="archive-status pending">LOCKED</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+        </main>
+    </div>
+    
+    <script src="scripts/fx.js"></script>
 </body>
 </html>

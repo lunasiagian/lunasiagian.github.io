@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakapana Knowledge Graph — Sakapana Terminal</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body data-fog="none">
+    
+    <div class="tech-frame frame-top"></div>
+    <div class="tech-frame frame-bottom"></div>
+    <div class="tech-frame frame-left"></div>
+    <div class="tech-frame frame-right">
+        <div class="hud-rec-edge"><span class="pip"></span> RECORDING <span id="clock">[time]</span></div>
+    </div>
+
+    <div id="app-container">
+        <header class="sys-bar">
+            <div class="sys-left">
+                <a href="work.html" class="sys-btn back-btn" style="text-decoration:none;">←</a>
+                <div class="sys-id"><span class="moth-glyph amber">■</span> ARCHIVE </div>
+            </div>
+            <div class="sys-right">
+                <div class="sys-pill est-badge">COLLEGIUM EST.2026</div>
+                <div class="sys-pill telemetry-res capsule-res"><span id="res-value">0</span>/240 RES</div>
+                <div class="sys-pill nav-active">DOC_VIEWER.EXE</div>
+            </div>
+        </header>
+
+        <div class="chrono-feed-wrapper">
+            <div class="chrono-label">SYS.STATUS</div>
+            <div class="ticker-viewport">
+                <div class="chrono-ticker">
+                    <span class="ticker-item" id="ticker-date"></span>
+                    <span class="ticker-item" id="ticker-moon"></span>
+                    <span class="ticker-item telemetry-sig">SIG.100</span>
+                </div>
+            </div>
+            <div class="chrono-edge">GUI.ONLINE</div>
+        </div>
+
+        <main class="dashboard-grid page-transition" style="display: flex;">
+            <div class="report-document">
+                
+                <!-- Programming Docs Sidebar -->
+                <aside class="report-sidebar">
+                    <nav class="report-toc">
+                        <h3>ON THIS PAGE</h3>
+                        <ul>
+                            <li><a href="#problem">PROBLEM STATEMENT</a></li>
+                            <li><a href="#build">WHAT WAS BUILT</a></li>
+                            <li><a href="#limits">WHAT IT DOES / DOESN'T DO</a></li>
+                            <li><a href="#learned">WHAT WAS LEARNED</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Documentation Content Pane -->
+                <div class="report-content-pane">
+                    <header class="report-cover">
+                        <div class="report-cover-meta">
+                            <div class="report-cover-meta-left">
+                                <span class="report-tag">TECHNICAL REPORT</span>
+                                <span>STATUS: IN PROGRESS</span>
+                            </div>
+                            <div class="report-cover-meta-right">
+                                <span>REP.2026.001</span>
+                                <span>FILED: 2026.04.12</span>
+                            </div>
+                        </div>
+                        <h1 class="report-cover-title">SAKAPANA KNOWLEDGE GRAPH</h1>
+                    </header>
+
+                    <div class="report-body">
+                        <section class="report-section" id="problem">
+                            <h2 class="report-section-label">PROBLEM STATEMENT</h2>
+                            <p>A knowledge graph of Sakapana cannot be a static graph; edges appear and disappear as fog events close and reopen passages. Traditional static modeling fails to capture the physical reality of the Collegium's changing infrastructure.</p>
+                        </section>
+
+                        <section class="report-section" id="build">
+                            <h2 class="report-section-label">WHAT WAS BUILT</h2>
+                            <p>A temporal state system using NetworkX for underlying logic and D3.js for visual rendering. The system treats nodes (rooms, terminals, passages) as constant, but evaluates the probability of edge connections dynamically based on a cryptographic time-hash of the current epoch.</p>
+                        </section>
+
+                        <section class="report-section" id="limits">
+                            <h2 class="report-section-label">WHAT IT DOES / DOESN'T DO</h2>
+                            <p><strong>DOES:</strong> Successfully models temporal access. If the fog state reaches "major", the graph isolates the outer wards automatically.<br>
+                            <strong>DOESN'T:</strong> The system does not yet support full text search on node metadata, limiting its use as a primary archival tool.</p>
+                        </section>
+
+                        <section class="report-section report-insight" id="learned">
+                            <h2 class="report-section-label">WHAT WAS LEARNED</h2>
+                            <p>When you build a system where the data structure physically alters itself based on environmental conditions, you stop treating it like a database and start treating it like an organism. The logic required to manage "disappearing data" without triggering system fatal errors taught me that graceful degradation isn't just a UI principle—it's a fundamental architectural requirement for resilient systems.</p>
+                        </section>
+                    </div>
+                    
+                    <footer class="report-footer">
+                        <a href="#" class="report-btn">LIVE DEMO ↗</a>
+                        <a href="#" class="report-btn" style="background:transparent; border-color:var(--royal); color:var(--cyan);">GITHUB REPO ↗</a>
+                    </footer>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/fx.js"></script>
+</body>
+</html>
