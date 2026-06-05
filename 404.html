@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Lost — Sakapana Terminal</title>
+    <!-- Use absolute paths so 404 works on nested URLs like /sakapana/fiction/ -->
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        .error-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+        }
+        .error-panel {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(3, 0, 8, 0.95);
+            border: 2px solid var(--white);
+            box-shadow: 8px 8px 0 var(--grid);
+        }
+        .error-panel .panel-header {
+            background: var(--void);
+            border-bottom: 2px solid var(--white);
+            justify-content: flex-start;
+            gap: 15px;
+        }
+        .error-panel .panel-title {
+            color: var(--white);
+            text-shadow: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .error-panel .panel-content {
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 4px);
+        }
+        .error-title {
+            font-size: 6rem;
+            color: var(--white);
+            margin-bottom: 50px;
+            text-shadow: 4px 4px 0 var(--hot);
+            text-align: center;
+            position: relative;
+            animation: glitch-skew 2s infinite linear alternate-reverse;
+        }
+        .error-title::before, .error-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .error-title::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--acid);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .error-title::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--cyan);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        .terminal-box {
+            background: var(--void);
+            border: 2px solid var(--hot);
+            box-shadow: 6px 6px 0 var(--hot);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            font-family: var(--font-meta);
+            color: var(--acid);
+            position: relative;
+        }
+        .terminal-box p {
+            margin: 0 0 12px 0;
+            font-size: 1rem;
+        }
+        .terminal-box p:last-child {
+            margin: 0;
+        }
+        .terminal-blocks {
+            position: absolute;
+            bottom: -15px;
+            right: 30px;
+            display: flex;
+            gap: 8px;
+            background: var(--void);
+            padding: 0 5px;
+        }
+        .terminal-blocks span {
+            width: 25px;
+            height: 12px;
+            border: 2px solid var(--void);
+        }
+        .block-hot { background: var(--hot); }
+        .block-acid { background: var(--acid); }
+        .block-white { background: var(--white); }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(98px, 9999px, 83px, 0); transform: translate(0); }
+            20% { clip: rect(10px, 9999px, 94px, 0); transform: translate(-2px, 2px); }
+            40% { clip: rect(69px, 9999px, 19px, 0); transform: translate(2px, -2px); }
+            60% { clip: rect(13px, 9999px, 78px, 0); transform: translate(-2px, 2px); }
+            80% { clip: rect(85px, 9999px, 23px, 0); transform: translate(2px, -2px); }
+            100% { clip: rect(31px, 9999px, 57px, 0); transform: translate(0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); transform: translate(0); }
+            20% { clip: rect(23px, 9999px, 41px, 0); transform: translate(2px, -2px); }
+            40% { clip: rect(89px, 9999px, 11px, 0); transform: translate(-2px, 2px); }
+            60% { clip: rect(4px, 9999px, 67px, 0); transform: translate(2px, -2px); }
+            80% { clip: rect(92px, 9999px, 35px, 0); transform: translate(-2px, 2px); }
+            100% { clip: rect(18px, 9999px, 88px, 0); transform: translate(0); }
+        }
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            10% { transform: skew(-5deg); }
+            20% { transform: skew(0deg); }
+            90% { transform: skew(0deg); }
+            100% { transform: skew(5deg); }
+        }
+    </style>
+</head>
+<body data-fog="none">
+    
+    <div class="tech-frame frame-top"></div>
+    <div class="tech-frame frame-bottom"></div>
+    <div class="tech-frame frame-left"></div>
+    <div class="tech-frame frame-right">
+        <div class="hud-rec-edge"><span class="pip"></span> RECORDING <span id="clock">[time]</span></div>
+    </div>
+
+    <div id="app-container">
+        <header class="sys-bar">
+            <div class="sys-left">
+                <a href="/" class="sys-btn back-btn" style="text-decoration:none;">←</a>
+                <div class="sys-id"><span class="moth-glyph crimson">■</span> ARCHIVE </div>
+            </div>
+            <div class="sys-right">
+                <div class="sys-pill est-badge">COLLEGIUM EST.2026</div>
+                <div class="sys-pill nav-active" style="background:var(--hot); border-color:var(--hot);">ERROR.404</div>
+            </div>
+        </header>
+
+        <div class="chrono-feed-wrapper" style="border-color: var(--hot);">
+            <div class="chrono-label" style="background: var(--hot);">SYS.STATUS</div>
+            <div class="ticker-viewport">
+                <div class="chrono-ticker">
+                    <span class="ticker-item" id="ticker-date"></span>
+                    <span class="ticker-item" id="ticker-moon"></span>
+                    <span class="ticker-item telemetry-sig" style="color:var(--hot);">SIG.LOST</span>
+                </div>
+            </div>
+            <div class="chrono-edge" style="border-color: var(--hot); color:var(--hot);">GUI.OFFLINE</div>
+        </div>
+
+        <main class="page-transition" style="flex:1; display:flex;">
+            <div class="error-container">
+                <section class="panel error-panel">
+                    <div class="panel-header">
+                        <span class="pip"></span>
+                        <span class="panel-title">DOWNLINK // UNKNOWN_FEED</span>
+                    </div>
+                    <div class="panel-content">
+                        
+                        <h1 class="error-title" data-text="SIGNAL LOST">SIGNAL LOST</h1>
+                        
+                        <div class="terminal-box">
+                            <p>> SYS.STATUS // <span style="color:var(--white);">STANDBY</span></p>
+                            <p>> ERROR.CODE // <span style="color:var(--hot);">404_NOT_FOUND</span></p>
+                            <p>> NO ACTIVE TRANSMISSION SIGNAL DETECTED</p>
+                            <p>> STANDBY FOR FEED SIGNAL DOWNLINK...</p>
+                            
+                            <div class="terminal-blocks">
+                                <span class="block-hot"></span>
+                                <span class="block-acid"></span>
+                                <span class="block-white"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/scripts/fx.js"></script>
+</body>
+</html>
