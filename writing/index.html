@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Luna Talita Siagian</title>
+<meta name="description" content="Essays, fiction & analysis by Luna Talita Siagian — on language, code, and what things mean.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="writing.css">
+<link rel="stylesheet" href="../assets/fx.css">
+</head>
+<body data-fx>
+  <main class="page">
+
+    <div class="chrome">
+      <div class="dots">
+        <span style="background:var(--pink)"></span>
+        <span style="background:var(--cyan)"></span>
+        <span style="background:var(--yellow)"></span>
+      </div>
+      <div class="urlbar">&#128274; LUNASIAGIAN.GITHUB.IO/WRITING</div>
+    </div>
+
+    <div class="subnav">
+      <a class="back" href="../index.html"><span class="arr">&#9664;</span> BACK TO HOME</a>
+      <span class="crumb">FIELD NOTES</span>
+    </div>
+
+    <!-- ===================== MASTHEAD ===================== -->
+    <div class="masthead">
+      <div class="halftone"></div>
+      <div class="status">
+        <span class="sticker">FIELD NOTES</span>
+        <span class="date" id="ed-date">&mdash;</span>
+      </div>
+      <div class="nameplate">THE&nbsp;<span class="neon">COMPENDIUM</span></div>
+      <div class="tagline">ESSAYS &middot; FICTION &middot; ANALYSIS</div>
+    </div>
+
+    <!-- ===================== FRONT PAGE ===================== -->
+    <div class="frontpage">
+      <div class="section-tag"><span class="t">LATEST</span><span class="ln"></span></div>
+
+      <!-- ===========================================================
+           ESSAY INDEX
+           To add a new essay: copy one <a class="story"> block,
+           point href at your new file, and fill in the fields.
+           Newest essay goes at the TOP.
+           =========================================================== -->
+
+      <a class="story" href="on-what-things-mean.html">
+        <span class="kicker">ESSAY</span>
+        <div class="head">On What Things Mean</div>
+        <div class="dateline">
+          <span>JUN 2, 2026</span><span class="sep">&#9670;</span>
+          <span>FIELD NOTES</span><span class="sep">&#9670;</span>
+          <span>7 MIN READ</span>
+        </div>
+        <p class="dek">A first field note: why I read code and fiction with the same pair of eyes, and what gets lost in the translation between them.</p>
+      </a>
+
+    </div>
+
+    <footer>
+      <span class="left">&#9733; &copy;2026 LUNA TALITA SIAGIAN</span>
+      <span class="right">EST. JKT&mdash;YYZ</span>
+    </footer>
+
+  </main>
+
+<script src="../assets/fx.js"></script>
+<script>
+  /* live dateline in the masthead edition row */
+  (function(){
+    var WD=["SUN","MON","TUE","WED","THU","FRI","SAT"];
+    var MO=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+    var d=new Date(), el=document.getElementById("ed-date");
+    if(el) el.textContent=WD[d.getDay()]+" "+MO[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();
+  })();
+</script>
+</body>
+</html>
