@@ -24,12 +24,25 @@
             background: rgba(3, 0, 8, 0.95);
             border: 2px solid var(--white);
             box-shadow: 8px 8px 0 var(--grid);
+            position: relative;
+            overflow: hidden;
+        }
+        .error-panel::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 2px, transparent 2px, transparent 4px);
+            pointer-events: none;
+            z-index: 50;
+            animation: scanline-shift 1s linear infinite;
         }
         .error-panel .panel-header {
             background: var(--void);
             border-bottom: 2px solid var(--white);
             justify-content: flex-start;
             gap: 15px;
+            position: relative;
+            z-index: 10;
         }
         .error-panel .panel-title {
             color: var(--white);
@@ -44,35 +57,18 @@
             flex-direction: column;
             align-items: center;
             background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 4px);
+            position: relative;
+            z-index: 10;
+            animation: tv-static-jitter 5s infinite;
         }
         .error-title {
             font-size: 6rem;
             color: var(--white);
             margin-bottom: 50px;
-            text-shadow: 4px 4px 0 var(--hot);
+            text-shadow: 3px 3px 0 var(--hot), -3px -3px 0 var(--cyan);
             text-align: center;
             position: relative;
-            animation: glitch-skew 2s infinite linear alternate-reverse;
-        }
-        .error-title::before, .error-title::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .error-title::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--acid);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 5s infinite linear alternate-reverse;
-        }
-        .error-title::after {
-            left: -2px;
-            text-shadow: -2px 0 var(--cyan);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim2 5s infinite linear alternate-reverse;
+            animation: tv-flicker 4s infinite, tv-roll 8s linear infinite;
         }
         
         .terminal-box {
@@ -111,28 +107,36 @@
         .block-acid { background: var(--acid); }
         .block-white { background: var(--white); }
 
-        @keyframes glitch-anim {
-            0% { clip: rect(98px, 9999px, 83px, 0); transform: translate(0); }
-            20% { clip: rect(10px, 9999px, 94px, 0); transform: translate(-2px, 2px); }
-            40% { clip: rect(69px, 9999px, 19px, 0); transform: translate(2px, -2px); }
-            60% { clip: rect(13px, 9999px, 78px, 0); transform: translate(-2px, 2px); }
-            80% { clip: rect(85px, 9999px, 23px, 0); transform: translate(2px, -2px); }
-            100% { clip: rect(31px, 9999px, 57px, 0); transform: translate(0); }
+        @keyframes tv-flicker {
+            0% { opacity: 1; }
+            5% { opacity: 0.8; }
+            10% { opacity: 1; }
+            15% { opacity: 0.5; text-shadow: 10px 0 0 var(--hot), -10px 0 0 var(--cyan); transform: skewX(-5deg); }
+            16% { opacity: 1; text-shadow: 3px 3px 0 var(--hot), -3px -3px 0 var(--cyan); transform: skewX(0); }
+            50% { opacity: 1; }
+            51% { opacity: 0.3; transform: scaleY(0.8); }
+            52% { opacity: 1; transform: scaleY(1); }
+            100% { opacity: 1; }
         }
-        @keyframes glitch-anim2 {
-            0% { clip: rect(65px, 9999px, 100px, 0); transform: translate(0); }
-            20% { clip: rect(23px, 9999px, 41px, 0); transform: translate(2px, -2px); }
-            40% { clip: rect(89px, 9999px, 11px, 0); transform: translate(-2px, 2px); }
-            60% { clip: rect(4px, 9999px, 67px, 0); transform: translate(2px, -2px); }
-            80% { clip: rect(92px, 9999px, 35px, 0); transform: translate(-2px, 2px); }
-            100% { clip: rect(18px, 9999px, 88px, 0); transform: translate(0); }
+        
+        @keyframes tv-roll {
+            0% { transform: translateY(0); }
+            95% { transform: translateY(0); }
+            96% { transform: translateY(-5px); }
+            98% { transform: translateY(5px); }
+            100% { transform: translateY(0); }
         }
-        @keyframes glitch-skew {
-            0% { transform: skew(0deg); }
-            10% { transform: skew(-5deg); }
-            20% { transform: skew(0deg); }
-            90% { transform: skew(0deg); }
-            100% { transform: skew(5deg); }
+        
+        @keyframes scanline-shift {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 4px; }
+        }
+        
+        @keyframes tv-static-jitter {
+            0% { transform: translate(0, 0); }
+            98% { transform: translate(0, 0); }
+            99% { transform: translate(1px, -1px); }
+            100% { transform: translate(-1px, 1px); }
         }
     </style>
 </head>
